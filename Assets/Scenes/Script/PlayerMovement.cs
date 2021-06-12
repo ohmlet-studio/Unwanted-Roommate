@@ -6,16 +6,19 @@ public class PlayerMovement : MonoBehaviour
 {
     private GameManager gm;
     private Rigidbody2D body;
+    private Animator animator;
 
     float horizontal;
     float vertical;
 
     public float runSpeed = 2f;
 
+
     // Start is called before the first frame update
     void Start()
     {
         gm = GameObject.FindObjectOfType<GameManager>();
+        animator = GetComponent<Animator>();
         body = GetComponent<Rigidbody2D>();
 
         horizontal = 0;
@@ -27,6 +30,9 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
+
+        animator.SetFloat("speedH", horizontal);
+        animator.SetFloat("speedV", vertical);
     }
     private void FixedUpdate()
     {
