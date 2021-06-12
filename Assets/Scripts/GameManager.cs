@@ -24,12 +24,25 @@ class GameManager : MonoBehaviour
 
     public GameObject hider_reg, hider_mind;
     public GameObject text_reg, text_mind;
+
+    public GameObject brightTheme, darkTheme;
+    IEnumerator volumeTransition;
+    IEnumerator canvasTransition;
+
+    SpriteRenderer brightHider, darkHider;
+    AudioSource darkSource, brightSource;
     private bool hidden_reg, hidden_mind;
 
     void Start()
     {
         this.normalWorld = true;
 
+        brightTheme = GameObject.Find("BrightTheme");
+        darkTheme = GameObject.Find("DarkTheme");
+        darkSource = darkTheme.GetComponent<AudioSource>();
+        brightSource = brightTheme.GetComponent<AudioSource>();
+        brightHider = hider_reg.GetComponent<SpriteRenderer>();
+        darkHider = hider_mind.GetComponent<SpriteRenderer>();
         hidden_reg = false;
         hidden_mind = true;
 
@@ -93,13 +106,76 @@ class GameManager : MonoBehaviour
     public void switchWorld() {
         this.normalWorld = !this.normalWorld;
 
+        if (volumeTransition != null) {
+            StopCoroutine(volumeTransition);
+        }
+
+        volumeTransition = volumeTransitionCoroutine(brightSource.volume, darkSource.volume);
+        StartCoroutine(volumeTransition);
+       
+        if (canvasTransition != null)
+        {
+            StopCoroutine(canvasTransition);
+        }
+
+        canvasTransition = canvasTransitionCoroutine(this.brightHider.color.a, this.darkHider.color.a);
         this.hidden_reg = !this.hidden_reg;
         this.hidden_mind = !this.hidden_mind;
+        
 
         this.hider_reg.SetActive(this.hidden_reg);
         this.text_reg.SetActive(!this.hidden_reg);
 
         this.hider_mind.SetActive(this.hidden_mind);
         this.text_mind.SetActive(!this.hidden_mind);
+    }
+
+    // MUSIC COROUTINE
+    IEnumerator volumeTransitionCoroutine(float brightVolume, float darkVolume)
+    {
+        float brightTarget, darkTarget, progress = 0.0f;
+        if (this.normalWorld)
+        {
+            brightTarget = 1.0f;
+            darkTarget = 0.0f;  
+        }
+        else
+        {
+            brightTarget = 0.0f;
+            darkTarget = 1.0f;
+        }
+
+        while (progress < 1.0)
+        {
+            progress += Time.unscaledDeltaTime;
+            brightSource.volume = Mathf.Lerp(brightVolume, brightTarget, progress);
+            darkSource.volume = Mathf.Lerp(darkVolume, darkTarget, progress);
+            yield return null;
+        }
+    }
+
+    // CANVAS COROUTINE
+
+    IEnumerator canvasTransitionCoroutine(float brightAlpha, float darkAlpha)
+    {
+        float brightTarget, darkTarget, progress = 0.0f;
+        if (this.normalWorld)
+        {
+            brightTarget = 0.0f;
+            darkTarget = 1.0f;
+        }
+        else
+        {
+            brightTarget = 1.0f;
+            darkTarget = 0.0f;
+        }
+
+        while (progress < 1.0)
+        {
+            progress += Time.unscaledDeltaTime;
+            //brightHider.color.a = Mathf.Lerp(brightAlpha, brightTarget, progress);
+
+            yield return null;
+        }
     }
 }

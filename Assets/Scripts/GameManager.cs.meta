@@ -3,7 +3,15 @@ guid: e1ebc0907c79c844b905de2374fdd08c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - hider_reg: {instanceID: 0}
+  - hider_mind: {instanceID: 0}
+  - text_reg: {instanceID: 0}
+  - text_mind: {instanceID: 0}
+  - brightTheme: {fileID: 4755956042326023328, guid: 197d83df72957ad459bc781f05e7bc97,
+      type: 3}
+  - darkTheme: {fileID: 756063504513143515, guid: f0f561241f011ea49b126d5da6b0a6ee,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
