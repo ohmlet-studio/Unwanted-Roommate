@@ -11,6 +11,7 @@ class GameManager : MonoBehaviour
     public bool downKeyDown;
     public bool leftKeyDown;
     public bool rightKeyDown;
+    public bool interactKeyDown;
 
     public bool normalWorld;
 
@@ -19,6 +20,7 @@ class GameManager : MonoBehaviour
     private List<KeyCode> downKeys = new List<KeyCode> { KeyCode.DownArrow, KeyCode.S};
     private List<KeyCode> leftKeys = new List<KeyCode> { KeyCode.LeftArrow, KeyCode.Q, KeyCode.A };
     private List<KeyCode> rightKeys = new List<KeyCode> { KeyCode.RightArrow, KeyCode.D };
+    private List<KeyCode> interactKeys = new List<KeyCode> { KeyCode.RightControl, KeyCode.Space, KeyCode.E };
 
     public GameObject hider_reg, hider_mind;
     public GameObject text_reg, text_mind;
@@ -78,6 +80,12 @@ class GameManager : MonoBehaviour
         foreach (KeyCode k in rightKeys)
         {
             this.rightKeyDown |= Input.GetKeyDown(k);
+        }
+
+        this.interactKeyDown = false;
+        foreach (KeyCode k in interactKeys)
+        {
+            this.interactKeyDown |= Input.GetKeyDown(k);
         }
 
     }
