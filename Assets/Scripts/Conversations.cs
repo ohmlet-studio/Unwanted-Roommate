@@ -120,6 +120,7 @@ public static class Conversations
 
 	public static List<string> mirrorConv = new List<string>
 	{
+		"{custom2}", "{clear}",
 		"I don't look that bad, but I FEEL bad.", "{wait0.5}", "{pause}",
 
 		"{custom3}", "{clear}",
@@ -129,7 +130,7 @@ public static class Conversations
 		"But I haven't seen my friends in a while...", "{wait0.5}", "{pause}",
 
 		"{custom3}", "{clear}",
-		"You don't need them. ", "{wait2}", "We are fine on our own.", "{wait0.5}", "{pause}",
+		"You don't need them. ", "{wait1}", "We are fine on our own.", "{wait0.5}", "{pause}",
 
 		"{custom2}", "{clear}",
 		"You're not healthy for me. ", "{wait1}", "I can't think with you around here. ", "{wait0.5}", "{pause}",
@@ -138,26 +139,26 @@ public static class Conversations
 		"{loading}", "{pause}",
 
 		"{custom2}", "{clear}",
-		"You're not always here. ", "{wait1.5}", "Why are you here now?", "{wait0.5}", "{pause}",
+		"You're not always here. ", "{wait1}", "Why are you here now?", "{wait0.5}", "{pause}",
 
 		"{custom3}", "{clear}",
 		"You were scared, I came to help.", "{wait0.5}", "{pause}",
 
 		"{custom2}", "{clear}",
-		"You're not helping. ", "{wait1}", "You are making things worse. ", "{wait3}", "", "", "I want to go to a part and you're making me tidy my appartment.",
+		"You're not helping. ", "{wait1}", "You are making things worse. ", "{wait1}", "", "", "I want to go to a part and you're making me tidy my appartment.",
 		"{wait0.5}", "{pause}",
 
 		"{custom3}", "{clear}",
 		"We're not ready to go outside.", "{wait0.5}", "{pause}",
 
 		"{custom2}", "{clear}",
-		"Yes I am. ", "{wait1}", "Stop telling me what to do. ", "", "", "{wait2}", "I don't want you here", "{wait0.5}", "{pause}",
+		"Yes I am. ", "{wait1}", "Stop telling me what to do. ", "", "", "{wait1}", "I don't want you here", "{wait0.5}", "{pause}",
 
 		"{custom3}", "{clear}",
 		"But I am you...", "{wait0.5}", "{pause}",
 
 		"{custom2}", "{clear}",
-		"{loading}", "{wait0.5}", "{pause}",
+		"...", "{wait0.5}", "{pause}",
 
 		"{custom3}", "{clear}",
 		"I don't wanna go. ", "{wait1}", "I'm scared.", "{wait0.5}", "{pause}",
@@ -166,13 +167,13 @@ public static class Conversations
 		"{loading}", "... I understand, but I cannot live like this.", "{wait0.5}", "{pause}",
 
 		"{custom3}", "{clear}",
-		"{loading}", "{wait0.5}", "{pause}",
+		"...", "{wait0.5}", "{pause}",
 
 		"{custom2}", "{clear}",
-		"It's too hard to even think.", "", "", "{wait2}", "I don't feel like I have full control of my mind right now.", "{wait0.5}", "{pause}",
+		"It's too hard to even think.", "", "", "{wait1}", "I don't feel like I have full control of my mind right now.", "{wait0.5}", "{pause}",
 
 		"{custom3}", "{clear}",
-		"I can't just leave. ", "", "{wait2}", "We are not simply joined together.", "", "", "{wait3}", "We are one.", "{wait0.5}", "{pause}",
+		"I can't just leave. ", "", "{wait1}", "We are not simply joined together.", "", "", "{wait1.5}", "We are one.", "{wait0.5}", "{pause}",
 
 		"{custom2}", "{clear}",
 		"Then let's try and fix this together. ", "{wait0.5}", "{pause}"
@@ -181,12 +182,12 @@ public static class Conversations
 
 	public static List<string> windowConv = new List<string> {
 		"{custom1}", "{clear}",
-		"I'm scared. ", "{wait1.5}", "I don't know if we", "{loading}", "... if I can. ", "{wait2}", "There's too much.",
+		"I'm scared. ", "{wait0.5}", "I don't know if we", "{loading}", "... if I can. ", "{wait1}", "There's too much.",
 		"{wait0.5}", "{pause}",
 
 		"{custom0}", "{clear}",
-		"Don't worry, try and trust me. ", "", "{wait2}", "You're right, I can't leave the appartment yet.", "", "",
-		"{wait2}", "I'm not ready.",
+		"Don't worry, try and trust me. ", "", "{wait1}", "You're right, I can't leave the appartment yet.", "", "",
+		"{wait1}", "I'm not ready.",
 		"{wait0.5}", "{pause}",
 
 		"{custom1}", "{clear}",
@@ -200,11 +201,11 @@ public static class Conversations
 
 	public static List<string> bedConv = new List<string> {
 		"{custom1}", "{clear}",
-		"I feel a bit better already. ", "", "", "{wait2}", "But what if some of them are already inside?",
+		"I feel a bit better already. ", "", "", "{wait1}", "But what if some of them are already inside?",
 		"{wait0.5}", "{pause}",
 
 		"{custom0}", "{clear}",
-		"We can get rid of them together. ", "{wait2}", "Follow my lead.",
+		"We can get rid of them together. ", "{wait1}", "Follow my lead.",
 		"{wait0.5}", "{pause}",
 	};
 
@@ -232,7 +233,7 @@ public static class Conversations
 
 	"{custom0}", "{clear}",
 	"I don't know. ", "{wait1}", "Let's make the decision together. ",
-	"{wait0.1}", "{pause}",
+	"{wait0.5}", "{pause}",
 };
 
 	public static List<string> conclusionTheyWentOut = new List<string> {

@@ -8,6 +8,7 @@ public class TextManager : MonoBehaviour
     public Text text_light;
     public Text text_dark;
 	public Text text_mirror;
+	public Text text_ending;
 
 	public Text currentText;
 	public GameObject currentIndic;
