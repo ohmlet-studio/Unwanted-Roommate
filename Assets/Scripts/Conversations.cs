@@ -6,6 +6,7 @@ public static class Conversations
 	{
 		"Hey! Welcome. "
 	};
+
 	public static List<string> intro = new List<string>
 	{
 		"Hey! Welcome. ", "{wait1.5}", "", "This little game was made during the GMTK 2021 Game Jam. ", "{wait2}",
@@ -13,10 +14,12 @@ public static class Conversations
 		"The goal is to help me overcome my overwhelming anxiety. ", "{wait1.5}" ,"You will get to meet it soon enough. " , "{wait1.5}" ,
 		"", "",
 		"We live at the same place anyway.",
+
 		"", "",
 		"{loading}",
 		"...",
-		"",
+		"","",
+
 		"My name is Max, by the way. " , "{wait1}", "Pleased to meet you. " , "{wait3.5}",
 		"", "",
 		"You'll be able to tell me where to go using your arrow keys. " , "{wait4}",
@@ -24,7 +27,9 @@ public static class Conversations
 		"", "",
 		"Whenever you see [...] at the bottom of the screen, press your spacebar to display the next dialogue. ",
 		"{pause}",
-		"", "",
+
+		"", "", "{clear}",
+
 		"That's it. ", "{wait2}", "Just like that. ",  "{wait2}",  "I think you're ready. I hope you have fun :)", "{pause}"
 	};
 
@@ -33,13 +38,16 @@ public static class Conversations
 	public static List<string> text_conv1 = new List<string>{
 		"[17:48] Deb : Hey are you still up for tonight ?", "",
 		"{wait1}",
-		"[17:49] Max : Mhhh", "{loading}", "... I don't know ", "{wait1}", " *sigh*", "",
+		"[17:49] Max : Mhhh", "{loading}", "... I don't know ", "{wait1}",
+		
+		"", "", " *sigh*", "", "",
+
 		"{loading}",
-		"[17:49] Deb : well sasha and todd are going and they said they really wanted to see you !", "",
+		"[17:49] Deb : well Sasha and Todd are going and they said they really wanted to see you!", "",
 		"{wait1}",
 		"[17:50] Max : ...", "",
 		"{loading}",
-		"[17:50] Deb : Anyway bring apple juice ", "{loading}", " I'll see you soon !", "{wait1}", "Bye !", "",
+		"[17:50] Deb : Anyway bring apple juice ", "{loading}", " I'll see you soon!", "{wait1}", " Bye!", "",
 		"{pause}"
 	};
 
@@ -48,19 +56,20 @@ public static class Conversations
 	public static List<string> beforeshower = new List<string> {
 		"{loading}",
 		"I should at least drop by to say hi", "",
-		"I haven't seen Sasha in a long time...", "{wait3}", " *sigh* ", "",
+		"I haven't seen Sasha in a long time...", "{wait3}",
+		"", "", " *sigh* ",
 		"{pause}", "{clear}", "Anyway, I need a shower"
 	};
 
 	public static List<string> aftershower1 = new List<string>
 	{
-		"Ahhh that's better...", "{wait0.5}", "",
+		"Ahhh that's better...", "{wait1}", "",
 		"Ok, I think I'm ready to go, have I forgotten anything?", "{pause}",
 
 		"{custom1}", "{clear}",
 		"Wait", "{loading}", "...",
 		"",
-		"We can't leave the our home like this",
+		"We can't leave our room like this",
 		"{wait1}", "{pause}",
 
 		"{custom0}", "{clear}",
