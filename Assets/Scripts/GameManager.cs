@@ -36,7 +36,8 @@ class GameManager : MonoBehaviour
     IEnumerator canvasTransition;
 
     public GameObject mirrorCanvas;
-    
+    public GameObject endCanvas;
+
     private bool hidden_reg, hidden_mind;
 	public bool conversationRunning;
     public bool canSwap;
@@ -55,7 +56,9 @@ class GameManager : MonoBehaviour
         brightSource = brightTheme.GetComponent<AudioSource>();
 
         mirrorCanvas = GameObject.Find("Canvas_mirror_discussion");
+        endCanvas = GameObject.Find("Canvas_end");
         hideCanvas();
+        hideEnd();
         hidden_reg = false;
         hidden_mind = true;
 
@@ -116,6 +119,15 @@ class GameManager : MonoBehaviour
 
     }
 
+    public void displayEnd()
+    {
+        endCanvas.SetActive(true);
+    }
+
+    public void hideEnd()
+    {
+        endCanvas.SetActive(false);
+    }
     public void canSwapFunction()
     {
         canSwap = true;

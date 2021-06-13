@@ -233,6 +233,19 @@ public class GameStateManager : MonoBehaviour
 				tm.startConversation(Conversations.shiftTuto, customs: cust);
 				break;
 
+			case END1:
+				gm.displayEnd();
+				tm.currentText = tm.text_ending;
+				tm.startConversation(Conversations.conclusionTheyWentOut, customs: cust);
+				break;
+
+			case END2:
+				gm.displayEnd();
+				tm.currentText = tm.text_ending;
+				tm.startConversation(Conversations.conclusionTheyDidnt, customs: cust);
+				break;
+
+
 
 		}
 	}
