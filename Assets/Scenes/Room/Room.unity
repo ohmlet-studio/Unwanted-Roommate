@@ -498,7 +498,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 199024342}
   m_PrefabAsset: {fileID: 0}
---- !u!223 &199024347
+--- !u!223 &199024345
 Canvas:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3271,7 +3271,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1563677165}
   m_PrefabAsset: {fileID: 0}
---- !u!223 &1563677170
+--- !u!223 &1563677168
 Canvas:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3804,7 +3804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b167e04d28bd51a48a25559cfc34e65d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CURRENT_STATE: 0
+  CURRENT_STATE: -1
   phonePickedUp1: 0
   bureau_fait: 0
   bed_done: 0

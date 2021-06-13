@@ -2,6 +2,27 @@
 
 public static class Conversations
 {
+	public static List<string> intro = new List<string>
+	{
+		"Hey! Welcome. This little game was made during the GMTK 2021 Game Jam. ",
+		"",
+		"The goal is to help me overcome my overwhelming anxiety. You will get to meet it soon enough.",
+		"",
+		"We live at the same place anyway.",
+		"",
+		"{loading}",
+		"...",
+		"",
+		"My name is Max, by the way. Pleased to meet you.",
+		"",
+		"You'll be able to tell me where to go using your arrow keys.",
+		"If you need to interact with an object, get me in front of it and press your spacebar.",
+		"",
+		"Whenever you see [...] at the bottom of the screen, press your spacebar to display the next dialogue.",
+		"{pause}",
+		"That's it. Just like that. I think you're ready. I hope you have fun :)"
+	};
+
 	public static List<string> ring = new List<string> { "*Ring* *Ring*" };
 
 	public static List<string> conversation1 = new List<string>{

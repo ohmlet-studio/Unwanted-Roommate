@@ -177,7 +177,6 @@ class GameManager : MonoBehaviour
     }
 
     // CANVAS COROUTINE
-
     IEnumerator canvasTransitionCoroutine(float brightAlpha, float darkAlpha)
     {
         float brightTarget, darkTarget, progress = 0.0f;
