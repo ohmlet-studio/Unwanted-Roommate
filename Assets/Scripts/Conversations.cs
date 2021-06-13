@@ -63,7 +63,16 @@ public static class Conversations
 		"Wait", "{loading}", "We can't leave the our home like this"
 	};
 
-	public static List<string> conversation3 = new List<string> { "I should be making my bed first" };
+	public static List<string> aftershower3 = new List<string> { "Wait", "{loading}", "We can't leave the our home like this" };
+	public static List<string> aftershower4 = new List<string> { "Hummm you're right" };
+	public static List<string> aftershower5 = new List<string> { "You should tidy your desk, it's a mess." };
+	public static List<string> aftershower6 = new List<string> { "It's not that messy, I've been working on a projet for school with..." };
+	public static List<string> aftershower7 = new List<string> { "I don't want to leave without cleaning our desk", "{loading}", "You should clean it" };
+	public static List<string> aftershower8 = new List<string> { "I guess you're right.", "{wait1,5}",
+																	"I don't want to be at the party too early anyway", "{loading}", "Ok,",
+																	"{wait1.5}", "let's get this desk tidy!", "{clean}" };
+
+	// STATE BED
 
 	public static List<string> mindPreMirror = new List<string> { "{loading}", "... Look in the mirror, then." };
 

@@ -120,7 +120,7 @@ public class GameStateManager : MonoBehaviour
 				case MAKEBED:
 					gm.switchWorld();
 					gm.playerCanMove = true;
-					tm.startConversation(tm.text_light, Conversations.conversation3);
+					tm.startConversation(tm.text_light, Conversations.beforeshower);
 				break;
 
 				case MIRROR_DIALOG:
