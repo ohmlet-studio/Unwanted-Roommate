@@ -206,4 +206,47 @@ public static class Conversations
 		"{wait0.5}", "{pause}",
 	};
 
+	public static List<string> shiftTuto = new List<string>
+	{
+		"You can now swap between the two worlds by pressing the shift Key", "{wait0.1}", "{pause}"
+	};
+
+	public static List<string> endingConv = new List<string> {
+	"{custom0}", "{clear}",
+	"Ahhhh the rooms nice and tidy now, how do you feel? ",
+	"{wait0.1}", "{pause}",
+
+	"{custom1}", "{clear}",
+	"Better but I'm still not sure about tonight, and we are already late...",
+	"{wait0.1}", "{pause}",
+
+	"{custom0}", "{clear}",
+	"It's ok, try not to panic. ", "{wait1}", "We feel better, that's the main thing.", "", "", "{wait1}", "We're fine, everything's going to be ok.",
+	"{wait0.1}", "{pause}",
+
+	"{custom1}", "{clear}",
+	" Should we go?",
+	"{wait0.1}", "{pause}",
+
+	"{custom0}", "{clear}",
+	"I don't know. ", "{wait1}", "Let's make the decision together. ",
+	"{wait0.1}", "{pause}",
+};
+
+	public static List<string> conclusionTheyWentOut = new List<string> {
+	"Me and my anxiety had a nice time tonight.", "{wait1}", "", "",
+	"We didn't socialize muchn but we didn't want to push ourselves.", "{wait1}", "", "",
+	"At least i saw Sasha and ate some amazing guacamole.", "{wait1}", "", "",
+	"We left with a friend a little early but I'm really happy that we went.", "{wait2}", "", "", "",
+	"It was fun!"
+};
+
+	public static List<string> conclusionTheyDidnt = new List<string> {
+	"Me and my anxiety spent the whole night being creative. ", "{wait1}", "", "",
+	"We watched a really cool film and made a lasagna.", "{wait1}", "", "",
+	"Honestly, it was delicious.", "{wait1}", "", "",
+	"After that we drew a little bit and then went to bed.", "{wait1}", "", "",
+	"We managed to make this decision together and not feel guilty.", "{wait2}", "", "", "",
+	"I'm really happy"
+};
 }

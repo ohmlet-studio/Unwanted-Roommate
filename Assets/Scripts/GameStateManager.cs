@@ -167,15 +167,6 @@ public class GameStateManager : MonoBehaviour
 
 				break;
 
-<<<<<<< HEAD
-				case MIRROR_DIALOG:
-					gm.displayCanvas();
-					tm.currentIndic = tm.pauseIndicatorMirror;
-					tm.currentText = tm.text_mirror;
-					tm.startConversation(Conversations.mirrorConv, customs: cust, freezePlayer: true);
-
-					break;
-=======
 			case CONVERSATION1:
 				tm.currentIndic = tm.pauseIndicatorLight;
 				tm.currentText = tm.text_light;
@@ -239,11 +230,10 @@ public class GameStateManager : MonoBehaviour
 			case SHIFT_INSTRUCTION:
 				tm.currentIndic = tm.pauseIndicatorLight;
 				tm.currentText = tm.text_light;
-				tm.startConversation(Conversations.mirrorConv, customs: cust);
+				tm.startConversation(Conversations.shiftTuto, customs: cust);
 				break;
 
 
->>>>>>> 3c398913d9e39bd2415ae2d69a438b7a04d52c3f
 		}
 	}
 
