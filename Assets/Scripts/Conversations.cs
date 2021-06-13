@@ -30,13 +30,36 @@ public static class Conversations
 
 	public static List<string> ring = new List<string> { "*Ring* *Ring*" };
 
-	public static List<string> conversation1 = new List<string>{
-	"[20:15] Deb : Hey Jess is throwing a party tonight! You comin' ?", "",
-	"{loading}",
-	"[20:16] Max : Mhhh", "{loading}", "... sure, I guess, just gimme a sec",
-	"{pause}"};
+	public static List<string> text_conv1 = new List<string>{
+		"[17:48] Deb : Hey are you still up for tonight ?", "",
+		"{loading}",
+		"[17:49] Max : Mhhh", "{loading}", "... I don't know ", "{wait1}", " *sigh*", "",
+		"{loading}",
+		"[17:49] Deb : well sasha and todd are going and they said they really wanted to see you !", "",
+		"{wait1}",
+		"[17:50] Max : ...", "",
+		"{loading}",
+		"[17:50] Deb : Anyway bring apple juice ", "{loading}", " I'll see you soon !", "{wait1}", "Bye !", "",
+		"{pause}"
+	};
 
-	public static List<string> conversation2 = new List<string> { "...", "{pause}"};
+	public static List<string> dotdotdot = new List<string> { "...", "{pause}" };
 
-	public static List<string> conversation3 = new List<string> { "I should be making my bed first" };
+	public static List<string> beforeshower = new List<string> {
+		"{loading}",
+		"I should at least drop by to say hi", "",
+		"I haven't seen Sasha in a long time", "{loading}", "... *sigh* ", "",
+		"{pause}", "", "Anyway, I need a shower"
+	};
+
+	public static List<string> aftershower1 = new List<string>
+	{
+		"Ahhh that's better...", "{wait0.5}", "",
+		"Ok, I think I'm ready to go, have I forgotten anything?", "{pause}"
+	};
+
+	public static List<string> aftershower2 = new List<string>
+	{
+		"Wait", "{loading}", "We can't leave the our home like this"
+	};
 }

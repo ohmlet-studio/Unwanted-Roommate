@@ -76,13 +76,15 @@ public class GameStateManager : MonoBehaviour
 			switch (CURRENT_STATE)
 			{
 				case INIT:
-					StartCoroutine(StartRoutine(0.1f));
-					
+					StartCoroutine(StartRoutine(0.1f));					
 					break;
+
 				case INTRO:
-					tm.startConversation(tm.text_light, Conversations.intro, TextAnchor.MiddleLeft, freezePlayer: true);
-					
-					break;
+				List<Conversation.CustomFun> cust = new List<Conversation.CustomFun>();
+				cust.Add(() => Debug.Log("WOOOOOo"));
+
+				tm.startConversation(tm.text_light, Conversations.intro, TextAnchor.MiddleLeft, freezePlayer: true, customs: cust);	
+				break;
 
 				case START_STATE:
 					StartCoroutine(PhoneCountdown(5));
@@ -99,12 +101,12 @@ public class GameStateManager : MonoBehaviour
 					break;
 
 				case CONVERSATION1:
-					tm.startConversation(tm.text_light, Conversations.conversation1, TextAnchor.MiddleLeft, freezePlayer: true);
+					tm.startConversation(tm.text_light, Conversations.text_conv1, TextAnchor.MiddleLeft, freezePlayer: true);
 				break;
 
 				case CONVERSATION2:
 					gm.switchWorld();
-					tm.startConversation(tm.text_dark, Conversations.conversation2, freezePlayer: true);
+					tm.startConversation(tm.text_dark, Conversations.dotdotdot, freezePlayer: true);
 				break;
 
 				case MAKEBED:

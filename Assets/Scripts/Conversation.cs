@@ -9,6 +9,8 @@ public class Conversation : MonoBehaviour
 	private List<string> conversationLines;
 	private GameManager gm;
 
+	public delegate void CustomFun();
+
 	void Start()
 	{
 		gm = GetComponent<GameManager>();
@@ -45,14 +47,14 @@ public class Conversation : MonoBehaviour
 		this.conversationLines = new List<string>();
 	}
 
-	public void launchConversation(Text target, GameObject pauseIndicator, TextAnchor textAnchor = TextAnchor.MiddleLeft, bool freezePlayer = false)
+	public void launchConversation(Text target, GameObject pauseIndicator, TextAnchor textAnchor = TextAnchor.MiddleLeft, bool freezePlayer = false, List<CustomFun> customs = null)
 	{
 		target.alignment = textAnchor;
 
-		StartCoroutine(conversationStart(target, pauseIndicator, freezePlayer));
+		StartCoroutine(conversationStart(target, pauseIndicator, freezePlayer, customs));
 	}
 
-	IEnumerator conversationStart(Text target, GameObject pauseIndicator, bool freezePlayer) {
+	IEnumerator conversationStart(Text target, GameObject pauseIndicator, bool freezePlayer, List<CustomFun> customs) {
 		string builder = "";
 
 		gm.conversationRunning = true;
@@ -87,36 +89,14 @@ public class Conversation : MonoBehaviour
 				builder = "";
 				target.text = builder;
 			}
-			else if (s == "{wait10}") {
-				yield return new WaitForSeconds(10);
+			else if (s.StartsWith("{wait")) {
+				string f = s.Substring(5, s.Length - 6).Replace('.',',');
+				yield return new WaitForSeconds(float.Parse(f));
 			}
-			else if (s == "{wait5}")
+			else if (s.StartsWith("{custom"))
 			{
-				yield return new WaitForSeconds(5);
-			}
-			else if (s == "{wait4}")
-            {
-				yield return new WaitForSeconds(4);
-			}
-			else if (s == "{wait3.5}")
-			{
-				yield return new WaitForSeconds(3.5f);
-			}
-			else if (s == "{wait3}")
-			{
-				yield return new WaitForSeconds(3);
-			}
-			else if (s == "{wait2}")
-            {
-				yield return new WaitForSeconds(2);
-			}
-			else if (s == "{wait1.5}")
-			{
-				yield return new WaitForSeconds(1.5f);
-			}
-			else if (s == "{wait1}")
-            {
-				yield return new WaitForSeconds(1);
+				string f = s.Substring(7, s.Length - 8);
+				customs[int.Parse(f)]();
 			}
 			else if (s == "") {
 				builder += "\n";
