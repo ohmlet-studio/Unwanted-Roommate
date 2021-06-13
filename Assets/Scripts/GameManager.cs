@@ -35,6 +35,7 @@ class GameManager : MonoBehaviour
     CanvasGroup brightCG, darkCG;
     IEnumerator canvasTransition;
 
+    IEnumerator goToBright, goToDark;
     public GameObject mirrorCanvas;
     public GameObject endCanvas;
 
@@ -155,6 +156,14 @@ class GameManager : MonoBehaviour
         this.normalWorld = true;
         this.hidden_reg = false;
         this.hidden_mind = true;
+
+        if (goToBright != null)
+        {
+            StopCoroutine(goToBright);
+        }
+
+        goToBright = goToBrightCoroutine(brightSource.volume, darkSource.volume, brightCG.alpha, darkCG.alpha);
+        StartCoroutine(goToBright);
     }
 
     public void goWorldDark()
@@ -162,6 +171,14 @@ class GameManager : MonoBehaviour
         this.normalWorld = false;
         this.hidden_reg = true;
         this.hidden_mind = false;
+
+        if (goToDark != null)
+        {
+            StopCoroutine(goToDark);
+        }
+
+        goToDark = goToDarkCoroutine(brightSource.volume, darkSource.volume, brightCG.alpha, darkCG.alpha);
+        StartCoroutine(goToDark);
     }
 
     public void switchWorld() {
@@ -189,6 +206,33 @@ class GameManager : MonoBehaviour
 
         this.hider_mind.SetActive(this.hidden_mind);
         this.text_mind.SetActive(!this.hidden_mind);*/
+    }
+    IEnumerator goToBrightCoroutine(float brightVolume, float darkVolume, float brightAlpha, float darkAlpha)
+    {
+        float progress = 0.0f;
+        while (progress < 1.0)
+        {
+            progress += Time.unscaledDeltaTime * 2.0f;
+            brightSource.volume = Mathf.Lerp(brightVolume, 1.0f, progress);
+            darkSource.volume = Mathf.Lerp(darkVolume, 0.0f, progress);
+            brightCG.alpha = Mathf.Lerp(brightAlpha, 0.0f, progress);
+            darkCG.alpha = Mathf.Lerp(darkAlpha, 1.0f, progress);
+            yield return null;
+        }
+    }
+
+    IEnumerator goToDarkCoroutine(float brightVolume, float darkVolume, float brightAlpha, float darkAlpha)
+    {
+        float progress = 0.0f;
+        while (progress < 1.0)
+        {
+            progress += Time.unscaledDeltaTime * 2.0f;
+            brightSource.volume = Mathf.Lerp(brightVolume, 0.0f, progress);
+            darkSource.volume = Mathf.Lerp(darkVolume, 1.0f, progress);
+            brightCG.alpha = Mathf.Lerp(brightAlpha, 1.0f, progress);
+            darkCG.alpha = Mathf.Lerp(darkAlpha, 0.0f, progress);
+            yield return null;
+        }
     }
 
     // MUSIC COROUTINE
