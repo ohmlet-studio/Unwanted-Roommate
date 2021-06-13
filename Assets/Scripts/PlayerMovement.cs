@@ -34,48 +34,63 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");
+        if(gm.playerCanMove) {
+            horizontal = Input.GetAxisRaw("Horizontal");
+            vertical = Input.GetAxisRaw("Vertical");
 
-        animator.SetFloat("speedH", horizontal);
-        animator.SetFloat("speedV", vertical);
+            animator.SetFloat("speedH", horizontal);
+            animator.SetFloat("speedV", vertical);
 
-        if(horizontal < 0) {
-            flipSprite = true;
-        } else if(horizontal > 0) {
-            flipSprite = false;
-        }
+            if (horizontal < 0)
+            {
+                flipSprite = true;
+            }
+            else if (horizontal > 0)
+            {
+                flipSprite = false;
+            }
 
-        if(horizontal == 0) {
-            lockFlip = true;
-        } else {
-            lockFlip = false;
-        }
+            if (horizontal == 0)
+            {
+                lockFlip = true;
+            }
+            else
+            {
+                lockFlip = false;
+            }
+        }        
     }
     private void FixedUpdate()
     {
-
-        if (horizontal != 0 && vertical != 0)
+        if (gm.playerCanMove)
         {
-            horizontal *= 0.7f;
-            vertical *= 0.7f;
+            if (horizontal != 0 && vertical != 0)
+            {
+                horizontal *= 0.7f;
+                vertical *= 0.7f;
+            }
+
+            Vector2 movement;
+
+            if ((gm.normalWorld && isMind) || (!gm.normalWorld && !isMind))
+            {
+                movement = new Vector2(-1 * horizontal * runSpeed, vertical * runSpeed);
+            }
+            else
+            {
+                movement = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+            }
+
+            if (!lockFlip && ((gm.normalWorld && isMind) || (!gm.normalWorld && !isMind)))
+            {
+                spriteRenderer.flipX = !flipSprite;
+            }
+            else if (!lockFlip)
+            {
+                spriteRenderer.flipX = flipSprite;
+            }
+
+            body.velocity = movement;
         }
-
-        Vector2 movement;
-
-        if ((gm.normalWorld && isMind) || (!gm.normalWorld && !isMind)) {
-            movement = new Vector2(-1 * horizontal * runSpeed, vertical * runSpeed);
-        } else {
-            movement = new Vector2(horizontal * runSpeed, vertical * runSpeed);
-        }
-
-        if(!lockFlip && ((gm.normalWorld && isMind) || (!gm.normalWorld && !isMind))) {
-            spriteRenderer.flipX = !flipSprite;
-        } else if(!lockFlip){
-            spriteRenderer.flipX = flipSprite;
-        }
-
-        body.velocity = movement;
-
     }
 }

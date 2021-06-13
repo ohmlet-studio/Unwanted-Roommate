@@ -13,7 +13,7 @@ public class TextManager : MonoBehaviour
         {
             font = Resources.GetBuiltinResource<Font>("Arial.ttf");
         }
-        target.text += content;
+        target.text += "\n"  + content;
         target.font = font;
     }
 

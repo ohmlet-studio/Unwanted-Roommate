@@ -13,6 +13,8 @@ class GameManager : MonoBehaviour
     public bool rightKeyDown;
     public bool interactKeyDown;
 
+    public bool playerCanMove = true;
+
     public bool normalWorld;
 
     private List<KeyCode> shiftWorldKeys = new List<KeyCode> { KeyCode.LeftShift, KeyCode.RightShift };
@@ -101,6 +103,15 @@ class GameManager : MonoBehaviour
             this.interactKeyDown |= Input.GetKeyDown(k);
         }
 
+    }
+
+    public void lockControls() {
+        playerCanMove = false;
+    }
+
+    public void unlockControls()
+    {
+        playerCanMove = true;
     }
 
     public void switchWorld() {
