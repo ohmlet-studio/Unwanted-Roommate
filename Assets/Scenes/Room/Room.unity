@@ -4590,7 +4590,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &1746245191
 Canvas:
   m_ObjectHideFlags: 0
@@ -5742,6 +5742,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mirror_Discussion
+      objectReference: {fileID: 0}
+    - target: {fileID: 3574645013797207251, guid: 46f2fb6768efbe047a5bd7b47eb8c16f,
+        type: 3}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7249419870115575126, guid: 46f2fb6768efbe047a5bd7b47eb8c16f,
         type: 3}

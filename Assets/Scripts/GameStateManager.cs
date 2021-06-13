@@ -75,9 +75,10 @@ public class GameStateManager : MonoBehaviour
 				break;
 
 			case MIRROR_DIALOG:
-				if (!gm.conversationRunning && mirror_conv_done)
+				if (!gm.conversationRunning)
                 {
 					CURRENT_STATE = MAKEBED_LIGHT;
+					gm.mirrorCanvas.SetActive(false);
 					OnStateChange();
 				}
 				break;
@@ -180,8 +181,27 @@ public class GameStateManager : MonoBehaviour
 					}
 					break;
 
-				case MIRROR_DIALOG:
-					break;
+			case MIRROR_DIALOG:
+				gm.mirrorCanvas.SetActive(true);
+				cust.Add(() =>
+				{
+					tm.currentIndic = tm.pauseIndicatorLight;
+					tm.currentText = tm.text_mirror;
+					tm.currentText.alignment = TextAnchor.UpperLeft;
+				});
+
+				cust.Add(() =>
+				{
+					tm.currentIndic = tm.pauseIndicatorDark;
+					tm.currentText = tm.text_mirror;
+					tm.currentText.alignment = TextAnchor.UpperRight;
+				});
+
+				tm.currentIndic = tm.pauseIndicatorLight;
+				tm.currentText = tm.text_mirror;
+				tm.startConversation(Conversations.mirrorConv, customs: cust, freezePlayer: true);
+
+				break;
 		}
 	}
 
