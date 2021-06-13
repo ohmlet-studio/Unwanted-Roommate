@@ -22,7 +22,7 @@ public class WindowDarkScript : Interactable
 
     public override void Interact()
     {
-        if (gsm.CURRENT_STATE == GameStateManager.IDLE)
+        if (gsm.CURRENT_STATE == GameStateManager.CLOSEWINDOW_DARK)
         {
             GetComponent<SpriteRenderer>().sprite = window_done;
             gsm.window_done = true;

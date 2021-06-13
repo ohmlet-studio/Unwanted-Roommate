@@ -196,7 +196,9 @@ public static class Conversations
 		"{custom0}", "{clear}",
 		"Let's just close the windows first.",
 		"{wait0.5}", "{pause}",
+	};
 
+	public static List<string> bedConv = new List<string> {
 		"{custom1}", "{clear}",
 		"I feel a bit better already. ", "", "", "{wait2}", "But what if some of them are already inside?",
 		"{wait0.5}", "{pause}",

@@ -21,12 +21,15 @@ public class GameStateManager : MonoBehaviour
 	public const int MIRROR_DIALOG = 8;
 	public const int SHIFT_INSTRUCTION = 9;
 
-	public const int CLOSEWINDOW_LIGHT = 10;
+	//public const int CLOSEWINDOW_LIGHT = 10;
 	public const int CLOSEWINDOW_DARK = 11;
 	public const int MAKEBED_LIGHT = 12;
-	public const int MAKEBED_DARK = 13;
+	//public const int MAKEBED_DARK = 13;
 
-	public const int END = -4;
+	public const int LASTCONV = 14;
+	public const int END1 = 15;
+	public const int END2 = 16;
+
 	public const int IDLE = -5;
 	public const int MAKEBED = -3;
 
@@ -36,9 +39,11 @@ public class GameStateManager : MonoBehaviour
 	public bool bureau_fait = false;
 	public bool mirror = false;
 	public bool bed_done = false;
-	public bool bed_done_dark = false;
+	public bool bed_done_light = false;
 	public bool window_done = false;
 	public bool mirror_conv_done = false;
+	public bool wentout = false;
+	public bool stayedinside = false;
 	GameManager gm;
 	private TextManager tm;
 
@@ -90,7 +95,7 @@ public class GameStateManager : MonoBehaviour
 			case SHIFT_INSTRUCTION:
 				if (!gm.conversationRunning)
 				{
-					CURRENT_STATE = MAKEBED_LIGHT;
+					CURRENT_STATE = CLOSEWINDOW_DARK;
 					OnStateChange();
 				}
 				break;
@@ -101,13 +106,13 @@ public class GameStateManager : MonoBehaviour
 	{
 		List<Conversation.CustomFun> cust = new List<Conversation.CustomFun>();
 		cust.Add(() => {
-			gm.switchWorld();
+			gm.goWorldLight();
 			tm.currentIndic = tm.pauseIndicatorLight;
 			tm.currentText = tm.text_light;
 		});
 
 		cust.Add(() => {
-			gm.switchWorld();
+			gm.goWorldDark();
 			tm.currentIndic = tm.pauseIndicatorDark;
 			tm.currentText = tm.text_dark;
 		});
@@ -233,7 +238,51 @@ public class GameStateManager : MonoBehaviour
 				tm.startConversation(Conversations.shiftTuto, customs: cust);
 				break;
 
+			case CLOSEWINDOW_DARK:
+				if (window_done)
+				{
+					CURRENT_STATE = MAKEBED_LIGHT;
+					OnStateChange();
+				}
+				else
+				{
+					tm.startConversation(Conversations.windowConv, customs: cust);
+				}
+				break;
 
+			case MAKEBED_LIGHT:
+				if (bed_done)
+				{
+					CURRENT_STATE = LASTCONV;
+					OnStateChange();
+				}
+				else
+				{
+					tm.startConversation(Conversations.bedConv, customs: cust);
+				}
+				break;
+
+			case LASTCONV:
+				if (wentout)
+				{
+					CURRENT_STATE = END1;
+					OnStateChange();
+				} else if (stayedinside){
+					CURRENT_STATE = END2;
+					OnStateChange();
+				} else
+				{
+					tm.startConversation(Conversations.endingConv, customs: cust);
+				}
+				break;
+
+			case END1:
+				tm.startConversation(Conversations.conclusionTheyWentOut, customs: cust);
+				break;
+
+			case END2:
+				tm.startConversation(Conversations.conclusionTheyDidnt, customs: cust);
+				break;
 		}
 	}
 

@@ -22,11 +22,10 @@ public class BedScript : Interactable
 
     public override void Interact()
     {
-        if (gsm.CURRENT_STATE == GameStateManager.IDLE)
+        if (gsm.CURRENT_STATE == GameStateManager.MAKEBED_LIGHT)
         {
             GetComponent<SpriteRenderer>().sprite = bed_done;
-            gsm.bed_done = true;
-            gsm.OnStateChange();
+            gsm.bed_done_light = true;
         }
     }
 }
