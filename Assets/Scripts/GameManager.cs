@@ -39,11 +39,11 @@ class GameManager : MonoBehaviour
     
     private bool hidden_reg, hidden_mind;
 	public bool conversationRunning;
-
+    public bool canSwap;
 	void Start()
     {
         this.normalWorld = true;
-
+        canSwap = false;
         darkCanvas = GameObject.Find("Canvas_reg");
         brightCanvas = GameObject.Find("Canvas_mind");
         brightCG = brightCanvas.GetComponent<CanvasGroup>();
@@ -55,7 +55,7 @@ class GameManager : MonoBehaviour
         brightSource = brightTheme.GetComponent<AudioSource>();
 
         mirrorCanvas = GameObject.Find("Canvas_mirror_discussion");
-
+        hideCanvas();
         hidden_reg = false;
         hidden_mind = true;
 
@@ -70,7 +70,7 @@ class GameManager : MonoBehaviour
     {
         updateKeys();
 
-        if (this.shiftWorldKeyDown)
+        if (this.shiftWorldKeyDown && canSwap)
         {
             switchWorld();
         }
@@ -116,6 +116,10 @@ class GameManager : MonoBehaviour
 
     }
 
+    public void canSwapFunction()
+    {
+        canSwap = true;
+    }
     public void displayCanvas()
     {
         mirrorCanvas.SetActive(true);

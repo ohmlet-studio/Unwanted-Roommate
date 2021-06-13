@@ -175,6 +175,10 @@ public static class Conversations
 		"Then let's try and fix this together. ", "{pause}"
 	};
 
+	public static List<string> shiftTuto = new List<string>
+	{
+		"*You can now swap between the two worlds by pressing the shift Key*", "{wait0.1}", "{pause}"
+	};
 
 	public static List<string> windowConv = new List<string> { 
 		"{custom3}", "{clear}",

@@ -4975,6 +4975,7 @@ MonoBehaviour:
   darkCanvas: {fileID: 0}
   mirrorCanvas: {fileID: 0}
   conversationRunning: 0
+  canSwap: 0
 --- !u!4 &1910890695
 Transform:
   m_ObjectHideFlags: 0

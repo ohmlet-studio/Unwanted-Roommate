@@ -19,11 +19,12 @@ public class GameStateManager : MonoBehaviour
 	public const int MIRROR = 7;
 
 	public const int MIRROR_DIALOG = 8;
+	public const int SHIFT_INSTRUCTION = 9;
 
-	public const int MAKEBED_LIGHT = 9;
-	public const int MAKEBED_DARK = 10;
-
+	public const int CLOSEWINDOW_LIGHT = 10;
 	public const int CLOSEWINDOW_DARK = 11;
+	public const int MAKEBED_LIGHT = 12;
+	public const int MAKEBED_DARK = 13;
 
 	public const int END = -4;
 	public const int IDLE = -5;
@@ -50,17 +51,19 @@ public class GameStateManager : MonoBehaviour
 	}
 
 	void Update() {
-		switch (CURRENT_STATE) {
-			case INTRO: 
+		switch (CURRENT_STATE)
+		{
+			case INTRO:
 				if (!gm.conversationRunning)
-                {
+				{
 					CURRENT_STATE = START_STATE;
 					tm.conv.clearText(tm.text_light);
 					OnStateChange();
-                }
+				}
 				break;
 			case CONVERSATION1:
-				if(!gm.conversationRunning) {
+				if (!gm.conversationRunning)
+				{
 					CURRENT_STATE = CONVERSATION2;
 					OnStateChange();
 				}
@@ -76,9 +79,17 @@ public class GameStateManager : MonoBehaviour
 
 			case MIRROR_DIALOG:
 				if (!gm.conversationRunning)
-                {
+				{
+					CURRENT_STATE = SHIFT_INSTRUCTION;
+					gm.hideCanvas();
+					gm.canSwapFunction();
+					OnStateChange();
+				}
+				break;
+			case SHIFT_INSTRUCTION:
+				if (!gm.conversationRunning)
+				{
 					CURRENT_STATE = MAKEBED_LIGHT;
-					gm.mirrorCanvas.SetActive(false);
 					OnStateChange();
 				}
 				break;
@@ -99,109 +110,115 @@ public class GameStateManager : MonoBehaviour
 			tm.currentIndic = tm.pauseIndicatorDark;
 			tm.currentText = tm.text_dark;
 		});
+		cust.Add(() =>
+		{
+			tm.currentIndic = tm.pauseIndicatorLight;
+			tm.currentText = tm.text_mirror;
+			tm.currentText.alignment = TextAnchor.UpperLeft;
+		});
+
+		cust.Add(() =>
+		{
+			tm.currentIndic = tm.pauseIndicatorDark;
+			tm.currentText = tm.text_mirror;
+			tm.currentText.alignment = TextAnchor.UpperRight;
+		});
 
 		switch (CURRENT_STATE)
 			{
-				case INIT:
-					StartCoroutine(StartRoutine(0.1f));					
-					break;
+			case INIT:
+				StartCoroutine(StartRoutine(0.1f));					
+				break;
 
-				case INTRO:
-					tm.currentIndic = tm.pauseIndicatorLight;
-					tm.currentText = tm.text_light;
-					tm.startConversation(Conversations.intro, TextAnchor.MiddleLeft, freezePlayer: true);	
-					break;
+			case INTRO:
+				tm.currentIndic = tm.pauseIndicatorLight;
+				tm.currentText = tm.text_light;
+				tm.startConversation(Conversations.intro, TextAnchor.MiddleLeft, freezePlayer: true);	
+				break;
 
-				case START_STATE:
-					StartCoroutine(PhoneCountdown(5));
-					break;
+			case START_STATE:
+				StartCoroutine(PhoneCountdown(5));
+				break;
 
-				case PHONE_RINGING:
-					if (phonePickedUp1) {
-						CURRENT_STATE = CONVERSATION1;
-						OnStateChange();
-					} else {
-					tm.currentIndic = tm.pauseIndicatorLight;
-					tm.currentText = tm.text_light;
-					tm.startConversation(Conversations.ring);
-					}
+			case PHONE_RINGING:
+				if (phonePickedUp1) {
+					CURRENT_STATE = CONVERSATION1;
+					OnStateChange();
+				} else {
+				tm.currentIndic = tm.pauseIndicatorLight;
+				tm.currentText = tm.text_light;
+				tm.startConversation(Conversations.ring);
+				}
 
-					break;
+				break;
 
-				case CONVERSATION1:
-					tm.currentIndic = tm.pauseIndicatorLight;
-					tm.currentText = tm.text_light;
-					tm.startConversation(Conversations.text_conv1, TextAnchor.MiddleLeft, freezePlayer: true);
-					break;
+			case CONVERSATION1:
+				tm.currentIndic = tm.pauseIndicatorLight;
+				tm.currentText = tm.text_light;
+				tm.startConversation(Conversations.text_conv1, TextAnchor.MiddleLeft, freezePlayer: true);
+				break;
 
-				case CONVERSATION2:
+			case CONVERSATION2:
+				gm.switchWorld();
+				tm.currentIndic = tm.pauseIndicatorDark;
+				tm.currentText = tm.text_dark;
+				tm.startConversation(Conversations.dotdotdot, freezePlayer: true);
+				break;
+
+			case SHOWER_BEFORE:
+				if (shower_done)
+				{
+					CURRENT_STATE = SHOWER_AFTER;
+					OnStateChange();
+				} else {
 					gm.switchWorld();
-					tm.currentIndic = tm.pauseIndicatorDark;
-					tm.currentText = tm.text_dark;
-					tm.startConversation(Conversations.dotdotdot, freezePlayer: true);
-					break;
+					gm.playerCanMove = true;
 
-				case SHOWER_BEFORE:
-					if (shower_done)
-					{
-						CURRENT_STATE = SHOWER_AFTER;
-						OnStateChange();
-					} else {
-						gm.switchWorld();
-						gm.playerCanMove = true;
+					tm.currentIndic = tm.pauseIndicatorLight;
+					tm.currentText = tm.text_light;
+					tm.startConversation(Conversations.beforeshower);
+				}
+				break;
 
-						tm.currentIndic = tm.pauseIndicatorLight;
-						tm.currentText = tm.text_light;
-						tm.startConversation(Conversations.beforeshower);
-					}
-					break;
+			case SHOWER_AFTER:
+				if(bureau_fait) {
+					CURRENT_STATE = DESK;
+					OnStateChange();
+				} else {
+					tm.currentIndic = tm.pauseIndicatorLight;
+					tm.currentText = tm.text_light;
+					tm.startConversation(Conversations.aftershower1, customs: cust);
+				}
+				break;
 
-				case SHOWER_AFTER:
-					if(bureau_fait) {
-						CURRENT_STATE = DESK;
-						OnStateChange();
-					} else {
-						tm.currentIndic = tm.pauseIndicatorLight;
-						tm.currentText = tm.text_light;
-						tm.startConversation(Conversations.aftershower1, customs: cust);
-					}
-					break;
-
-				case DESK:
-					if (mirror)
-					{
-						CURRENT_STATE = MIRROR_DIALOG;
-						OnStateChange();
-					}
-					else
-					{
-						tm.currentIndic = tm.pauseIndicatorLight;
-						tm.currentText = tm.text_light;
-						tm.startConversation(Conversations.afterdesk, customs: cust);
-					}
-					break;
+			case DESK:
+				if (mirror)
+				{
+					CURRENT_STATE = MIRROR_DIALOG;
+					OnStateChange();
+				}
+				else
+				{
+					tm.currentIndic = tm.pauseIndicatorLight;
+					tm.currentText = tm.text_light;
+					tm.startConversation(Conversations.afterdesk, customs: cust);
+				}
+				break;
 
 			case MIRROR_DIALOG:
-				gm.mirrorCanvas.SetActive(true);
-				cust.Add(() =>
-				{
-					tm.currentIndic = tm.pauseIndicatorLight;
-					tm.currentText = tm.text_mirror;
-					tm.currentText.alignment = TextAnchor.UpperLeft;
-				});
-
-				cust.Add(() =>
-				{
-					tm.currentIndic = tm.pauseIndicatorDark;
-					tm.currentText = tm.text_mirror;
-					tm.currentText.alignment = TextAnchor.UpperRight;
-				});
-
+				gm.displayCanvas();
 				tm.currentIndic = tm.pauseIndicatorLight;
 				tm.currentText = tm.text_mirror;
 				tm.startConversation(Conversations.mirrorConv, customs: cust, freezePlayer: true);
-
 				break;
+
+			case SHIFT_INSTRUCTION:
+				tm.currentIndic = tm.pauseIndicatorLight;
+				tm.currentText = tm.text_light;
+				tm.startConversation(Conversations.mirrorConv, customs: cust);
+				break;
+
+
 		}
 	}
 
