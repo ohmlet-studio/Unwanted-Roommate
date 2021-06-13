@@ -67,6 +67,8 @@
     <Compile Include="Assets\Scripts\Conversations.cs" />
     <Compile Include="Assets\Scripts\Conversation.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\BedDarkScript.cs" />
+    <Compile Include="Assets\Scripts\WindowDarkScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

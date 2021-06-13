@@ -28,6 +28,8 @@ public class GameStateManager : MonoBehaviour
 	public bool phonePickedUp1 = false;
 	public bool bureau_fait = false;
 	public bool bed_done = false;
+	public bool bed_done_dark = false;
+	public bool window_done = false;
 
 	GameManager gm;
 	private TextManager tm;
