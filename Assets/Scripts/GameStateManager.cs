@@ -32,7 +32,7 @@ public class GameStateManager : MonoBehaviour
 	public bool bed_done = false;
 	public bool bed_done_dark = false;
 	public bool window_done = false;
-
+	public bool mirror_conv_done = false;
 	GameManager gm;
 	private TextManager tm;
 
@@ -65,6 +65,14 @@ public class GameStateManager : MonoBehaviour
 				if (!gm.conversationRunning)
 				{
 					CURRENT_STATE = MAKEBED;
+					OnStateChange();
+				}
+				break;
+
+			case MIRROR_DIALOG:
+				if (!gm.conversationRunning && mirror_conv_done)
+                {
+					CURRENT_STATE = MAKEBED_LIGHT;
 					OnStateChange();
 				}
 				break;
@@ -113,6 +121,11 @@ public class GameStateManager : MonoBehaviour
 					gm.switchWorld();
 					gm.playerCanMove = true;
 					tm.startConversation(tm.text_light, Conversations.conversation3);
+				break;
+
+				case MIRROR_DIALOG:
+					
+
 				break;
 		}
 	}

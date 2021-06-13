@@ -7,6 +7,7 @@ public class TextManager : MonoBehaviour
 {
     public Text text_light;
     public Text text_dark;
+	public Text text_mirror;
 
 	public GameObject pauseIndicatorLight;
 	public GameObject pauseIndicatorDark;
@@ -25,7 +26,7 @@ public class TextManager : MonoBehaviour
 		} else {
 			indic = pauseIndicatorDark;
 		}
-
+		
 		conv.loadConversation(conversation);
 
 		conv.launchConversation(text, indic, anchor, freezePlayer, customs);

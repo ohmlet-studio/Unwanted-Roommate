@@ -35,7 +35,7 @@ class GameManager : MonoBehaviour
     CanvasGroup brightCG, darkCG;
     IEnumerator canvasTransition;
 
-    
+    public GameObject mirrorCanvas;
     
     private bool hidden_reg, hidden_mind;
 	public bool conversationRunning;
@@ -48,12 +48,13 @@ class GameManager : MonoBehaviour
         brightCanvas = GameObject.Find("Canvas_mind");
         brightCG = brightCanvas.GetComponent<CanvasGroup>();
         darkCG = darkCanvas.GetComponent<CanvasGroup>();
-
         
         brightTheme = GameObject.Find("BrightTheme");
         darkTheme = GameObject.Find("DarkTheme");
         darkSource = darkTheme.GetComponent<AudioSource>();
         brightSource = brightTheme.GetComponent<AudioSource>();
+
+        mirrorCanvas = GameObject.Find("Canvas_mirror_discussion");
 
         hidden_reg = false;
         hidden_mind = true;
@@ -113,6 +114,16 @@ class GameManager : MonoBehaviour
             this.interactKeyDown |= Input.GetKeyDown(k);
         }
 
+    }
+
+    public void displayCanvas()
+    {
+        mirrorCanvas.SetActive(true);
+    }
+
+    public void hideCanvas()
+    {
+        mirrorCanvas.SetActive(false);
     }
 
     public void lockControls() {
