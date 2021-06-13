@@ -21,9 +21,10 @@ public class DoorScript : Interactable
 
     public override void Interact()
     {
-        if (gsm.CURRENT_STATE == GameStateManager.IDLE)
+        if (gsm.CURRENT_STATE == GameStateManager.LASTCONV)
         {
-
+            gsm.wentout = true;
+            gsm.OnStateChange();
         }
     }
 }

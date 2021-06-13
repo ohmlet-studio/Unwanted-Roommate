@@ -8,10 +8,18 @@ public class Shine : MonoBehaviour
     public bool shine = false;
     SpriteRenderer sr;
 
+    GameStateManager gsm;
+
     // Start is called before the first frame update
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
+        gsm = GameObject.Find("GameManager").GetComponent<GameStateManager>();
+    }
+
+    private void Update()
+    {
+        shine = (gsm.CURRENT_STATE == GameStateManager.LASTCONV);
     }
 
     void FixedUpdate()

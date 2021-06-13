@@ -74,7 +74,7 @@ class GameManager : MonoBehaviour
     {
         updateKeys();
 
-        if (this.shiftWorldKeyDown && canSwap)
+        if (this.shiftWorldKeyDown && canSwap && !conversationRunning)
         {
             switchWorld();
         }

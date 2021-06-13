@@ -91,7 +91,7 @@ public static class Conversations
 		"{custom0}", "{clear}",
 		"I guess you're right.", "",
 		"{wait1,5}", " I don't want to be at the party too early anyway","{loading}",
-		"", "", " Ok,", "{wait1.5}", " let's get this desk tidy!",
+		"", "", " Ok,", "{wait1}", " let's get this desk tidy!",
 		"{wait0.5}", "{pause}"
 	};
 
@@ -220,7 +220,7 @@ public static class Conversations
 
 	public static List<string> shiftTuto = new List<string>
 	{
-		"You can now swap between the two worlds by pressing the shift Key", "{wait0.1}", "{pause}"
+		"You can now swap between the two worlds by pressing the shift Key between dialogs.", "{wait0.1}", "{pause}"
 	};
 
 	public static List<string> endingConv = new List<string> {

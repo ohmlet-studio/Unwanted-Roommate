@@ -28,5 +28,11 @@ public class DeskScript : Interactable
             gsm.bureau_fait = true;
             gsm.OnStateChange();
         }
+
+        if (gsm.CURRENT_STATE == GameStateManager.LASTCONV)
+        {
+            gsm.stayedinside = true;
+            gsm.OnStateChange();
+        }
     }
 }
