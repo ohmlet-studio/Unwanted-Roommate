@@ -28,31 +28,40 @@ class GameManager : MonoBehaviour
     public GameObject text_reg, text_mind;
 
     public GameObject brightTheme, darkTheme;
+    AudioSource darkSource, brightSource;
     IEnumerator volumeTransition;
+
+    public GameObject brightCanvas, darkCanvas;
+    CanvasGroup brightCG, darkCG;
     IEnumerator canvasTransition;
 
-    SpriteRenderer brightHider, darkHider;
-    AudioSource darkSource, brightSource;
+    
+    
     private bool hidden_reg, hidden_mind;
 
     void Start()
     {
         this.normalWorld = true;
 
+        darkCanvas = GameObject.Find("Canvas_reg");
+        brightCanvas = GameObject.Find("Canvas_mind");
+        brightCG = brightCanvas.GetComponent<CanvasGroup>();
+        darkCG = darkCanvas.GetComponent<CanvasGroup>();
+
+        
         brightTheme = GameObject.Find("BrightTheme");
         darkTheme = GameObject.Find("DarkTheme");
         darkSource = darkTheme.GetComponent<AudioSource>();
         brightSource = brightTheme.GetComponent<AudioSource>();
-        brightHider = hider_reg.GetComponent<SpriteRenderer>();
-        darkHider = hider_mind.GetComponent<SpriteRenderer>();
+
         hidden_reg = false;
         hidden_mind = true;
 
-        this.hider_reg.SetActive(this.hidden_reg);
+        /*this.hider_reg.SetActive(this.hidden_reg);
         this.text_reg.SetActive(!this.hidden_reg);
 
         this.hider_mind.SetActive(this.hidden_mind);
-        this.text_mind.SetActive(!this.hidden_mind);
+        this.text_mind.SetActive(!this.hidden_mind);*/
     }
 
     void Update()
@@ -129,16 +138,17 @@ class GameManager : MonoBehaviour
             StopCoroutine(canvasTransition);
         }
 
-        canvasTransition = canvasTransitionCoroutine(this.brightHider.color.a, this.darkHider.color.a);
+        canvasTransition = canvasTransitionCoroutine(brightCG.alpha, darkCG.alpha);
+        StartCoroutine(canvasTransition);
+        
         this.hidden_reg = !this.hidden_reg;
         this.hidden_mind = !this.hidden_mind;
-        
 
-        this.hider_reg.SetActive(this.hidden_reg);
+        /*this.hider_reg.SetActive(this.hidden_reg);
         this.text_reg.SetActive(!this.hidden_reg);
 
         this.hider_mind.SetActive(this.hidden_mind);
-        this.text_mind.SetActive(!this.hidden_mind);
+        this.text_mind.SetActive(!this.hidden_mind);*/
     }
 
     // MUSIC COROUTINE
@@ -158,7 +168,7 @@ class GameManager : MonoBehaviour
 
         while (progress < 1.0)
         {
-            progress += Time.unscaledDeltaTime;
+            progress += Time.unscaledDeltaTime * 2.0f;
             brightSource.volume = Mathf.Lerp(brightVolume, brightTarget, progress);
             darkSource.volume = Mathf.Lerp(darkVolume, darkTarget, progress);
             yield return null;
@@ -180,13 +190,13 @@ class GameManager : MonoBehaviour
             brightTarget = 1.0f;
             darkTarget = 0.0f;
         }
-
         while (progress < 1.0)
         {
-            progress += Time.unscaledDeltaTime;
-            //brightHider.color.a = Mathf.Lerp(brightAlpha, brightTarget, progress);
-
+            progress += Time.unscaledDeltaTime * 6.0f;
+            brightCG.alpha = Mathf.Lerp(brightAlpha, brightTarget, progress);
+            darkCG.alpha = Mathf.Lerp(darkAlpha, darkTarget, progress);
             yield return null;
         }
+        
     }
 }
