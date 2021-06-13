@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Globalization;
 
 
 public class Conversation : MonoBehaviour
@@ -93,8 +94,8 @@ public class Conversation : MonoBehaviour
 				target.text = builder;
 			}
 			else if (s.StartsWith("{wait")) {
-				string f = s.Substring(5, s.Length - 6).Replace('.',',');
-				yield return new WaitForSeconds(float.Parse(f));
+				string f = s.Substring(5, s.Length - 6).Replace('.','.');
+				yield return new WaitForSeconds(float.Parse(f, CultureInfo.InvariantCulture));
 			}
 			else if (s.StartsWith("{custom"))
 			{

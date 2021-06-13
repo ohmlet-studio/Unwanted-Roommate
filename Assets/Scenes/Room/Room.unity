@@ -4510,7 +4510,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &1746245191
 Canvas:
   m_ObjectHideFlags: 0
@@ -4924,6 +4924,8 @@ MonoBehaviour:
   text_light: {fileID: 187267377}
   text_dark: {fileID: 1214549237}
   text_mirror: {fileID: 0}
+  currentText: {fileID: 0}
+  currentIndic: {fileID: 0}
   pauseIndicatorLight: {fileID: 1563677167}
   pauseIndicatorDark: {fileID: 199024344}
   conv: {fileID: 0}
@@ -4940,8 +4942,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CURRENT_STATE: -2
+  DEBUG_STATE: -1
   introDone: 0
   phonePickedUp1: 0
+  shower_done: 0
   bureau_fait: 0
   bed_done: 0
   bed_done_dark: 0
@@ -5657,6 +5661,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mirror_Discussion
+      objectReference: {fileID: 0}
+    - target: {fileID: 3574645013797207251, guid: 46f2fb6768efbe047a5bd7b47eb8c16f,
+        type: 3}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7249419870115575126, guid: 46f2fb6768efbe047a5bd7b47eb8c16f,
         type: 3}

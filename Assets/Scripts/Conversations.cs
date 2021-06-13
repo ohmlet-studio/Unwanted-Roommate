@@ -85,58 +85,84 @@ public static class Conversations
 	// ***************** MIRROR CONVERSATION ***************** //
 	// ******************************************************* //
 
-	// REAL SIDE ********************************************* //
+	public static List<string> mirrorConv = new List<string>
+	{
+		"I don't look that bad, but I FEEL bad.", "{pause}",
 
-	public static List<string> mirrorReal1 = new List<string> { "I don't look that bad, but I FEEL bad." };
+		"{custom3}", "{clear}",
+		"I don't think we should go. ", "{wait1}", "", "", "We look terrible and have loads of things to finish here first.", "{pause}",
 
-	public static List<string> mirrorReal2 = new List<string> { "But I haven't seen my friends in a while..." };
+		"{custom2}", "{clear}",
+		"But I haven't seen my friends in a while...", "{pause}",
 
-	public static List<string> mirrorReal3 = new List<string> { "You're not healthy for me. ", "{wait1}", "I can't think with you around here. "};
+		"{custom3}", "{clear}",
+		"You don't need them. ", "{wait2}", "We are fine on our own.", "{pause}",
 
-	public static List<string> mirrorReal4 = new List<string> { "You're not always here. ", "{wait1.5}", "Why are you here now?" };
+		"{custom2}", "{clear}",
+		"You're not healthy for me. ", "{wait1}", "I can't think with you around here. ", "{pause}",
 
-	public static List<string> mirrorReal5 = new List<string> { "You're not helping. ", "{wait1}", "You are making things worse. ", "{wait3}", "", "", "I want to go to a part and you're making me tidy my appartment." };
+		"{custom3}", "{clear}",
+		"{loading}", "{pause}",
 
-	public static List<string> mirrorReal6 = new List<string> { "Yes I am. ", "{wait1}", "Stop telling me what to do. ", "", "", "{wait2}", "I don't want you here" };
+		"{custom2}", "{clear}",
+		"You're not always here. ", "{wait1.5}", "Why are you here now?", "{pause}",
 
-	public static List<string> mirrorReal7 = new List<string> { "{loading}" };
+		"{custom3}", "{clear}",
+		"You were scared, I came to help.", "{pause}",
 
-	public static List<string> mirrorReal8 = new List<string> { "{loading}", "... I understand, but I cannot live like this." };
+		"{custom2}", "{clear}",
+		"You're not helping. ", "{wait1}", "You are making things worse. ", "{wait3}", "", "", "I want to go to a part and you're making me tidy my appartment.", "{pause}",
 
-	public static List<string> mirrorReal9 = new List<string> { "It's too hard to even think.", "", "", "{wait2}", "I don't feel like I have full control of my mind right now." };
-	
-	public static List<string> mirrorReal10 = new List<string> { "Then let's try and fix this together. " };
+		"{custom3}", "{clear}",
+		"We're not ready to go outside.", "{pause}",
 
-	public static List<string> mirrorReal11 = new List<string> { "Don't worry, try and trust me. ", "", "{wait2}", "You're right, I can't leave the appartment yet.", "", "", "{wait2}", "I'm not ready." };
+		"{custom2}", "{clear}",
+		"Yes I am. ", "{wait1}", "Stop telling me what to do. ", "", "", "{wait2}", "I don't want you here", "{pause}",
 
-	public static List<string> mirrorReal12 = new List<string> { "Let's just close the windows first." };
+		"{custom3}", "{clear}",
+		"But I am you...", "{pause}",
 
-	public static List<string> mirrorReal13 = new List<string> { "We can get rid of them together. ", "{wait2}", "Follow my lead." };
+		"{custom2}", "{clear}",
+		"{loading}", "{pause}",
 
-	// MIND SIDE ********************************************* //
+		"{custom3}", "{clear}",
+		"I don't wanna go. ", "{wait1}", "I'm scared.", "{pause}",
 
-	public static List<string> mirrorMind1 = new List<string> { "I don't think we should go. ", "{wait1}", "", "", "We look terrible and have loads of things to finish here first." };
+		"{custom2}", "{clear}",
+		"{loading}", "... I understand, but I cannot live like this.", "{pause}",
 
-	public static List<string> mirrorMind2 = new List<string> { "You don't need them. ", "{wait2}", "We are fine on our own." };
+		"{custom3}", "{clear}",
+		"{loading}", "{pause}",
 
-	public static List<string> mirrorMind3 = new List<string> { "{loading}" };
+		"{custom2}", "{clear}",
+		"It's too hard to even think.", "", "", "{wait2}", "I don't feel like I have full control of my mind right now.", "{pause}",
 
-	public static List<string> mirrorMind4 = new List<string> { "You were scared, I came to help." };
+		"{custom3}", "{clear}",
+		"I can't just leave. ", "", "{wait2}", "We are not simply joined together.", "", "", "{wait3}", "We are one.", "{pause}",
 
-	public static List<string> mirrorMind5 = new List<string> { "We're not ready to go outside." };
+		"{custom2}", "{clear}",
+		"Then let's try and fix this together. ", "{pause}"
+	};
 
-	public static List<string> mirrorMind6 = new List<string> { "But I am you..." };
 
-	public static List<string> mirrorMind7 = new List<string> { "I don't wanna go. ", "{wait1}", "I'm scared." };
+	public static List<string> windowConv = new List<string> { 
+		"{custom3}", "{clear}",
+		"I'm scared. ", "{wait1.5}", "I don't know if we", "{loading}", "... if I can. ", "{wait2}", "There's too much.", "{pause}",
 
-	public static List<string> mirrorMind8 = new List<string> { "{loading}" };
+		"{custom2}", "{clear}",
+		"Don't worry, try and trust me. ", "", "{wait2}", "You're right, I can't leave the appartment yet.", "", "", "{wait2}", "I'm not ready.", "{pause}",
 
-	public static List<string> mirrorMind9 = new List<string> { "I can't just leave. ", "", "{wait2}", "We are not simply joined together.", "", "", "{wait3}", "We are one." };
+		"{custom3}", "{clear}",
+		"I'm scared of all the monsters outside. ", "","{wait1}", "What if they come in?", "{pause}",
 
-	public static List<string> mirrorMind10 = new List<string> { "I'm scared. ", "{wait1.5}", "I don't know if we", "{loading}", "... if I can. ", "{wait2}", "There's too much." };
+		"{custom2}", "{clear}",
+		"Let's just close the windows first.", "{pause}",
 
-	public static List<string> mirrorMind11 = new List<string> { "I'm scared of all the monsters outside. ", "","{wait1}", "What if they come in?" };
+		"{custom3}", "{clear}",
+		"I feel a bit better already. ", "", "", "{wait2}", "But what if some of them are already inside?", "{pause}",
 
-	public static List<string> mirrorMind12 = new List<string> { "I feel a bit better already. ", "", "", "{wait2}", "But what if some of them are already inside?" };
+		"{custom2}", "{clear}",
+		"We can get rid of them together. ", "{wait2}", "Follow my lead.", "{pause}",
+	};
 
 }
