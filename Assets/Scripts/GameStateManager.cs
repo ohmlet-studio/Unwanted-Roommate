@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameStateManager : MonoBehaviour
 {
 	public int CURRENT_STATE;
+	public const int INIT = -2;
 	public const int INTRO = -1;
 	public const int START_STATE = 0;
 	public const int PHONE_RINGING = 1;
@@ -22,9 +23,10 @@ public class GameStateManager : MonoBehaviour
 	public const int CLOSEWINDOW_DARK = 10;
 
 	public const int END = -4;
-	public const int IDLE = -2;
+	public const int IDLE = -5;
 	public const int MAKEBED = -3;
 
+	public bool introDone = false;
 	public bool phonePickedUp1 = false;
 	public bool bureau_fait = false;
 	public bool bed_done = false;
@@ -42,6 +44,14 @@ public class GameStateManager : MonoBehaviour
 
 	void Update() {
 		switch (CURRENT_STATE) {
+			case INTRO: 
+				if (!gm.conversationRunning)
+                {
+					CURRENT_STATE = START_STATE;
+					tm.conv.clearText(tm.text_light);
+					OnStateChange();
+                }
+				break;
 			case CONVERSATION1:
 				if(!gm.conversationRunning) {
 					CURRENT_STATE = CONVERSATION2;
@@ -63,8 +73,13 @@ public class GameStateManager : MonoBehaviour
 	{
 			switch (CURRENT_STATE)
 			{
-				case INTRO:
+				case INIT:
 					StartCoroutine(StartRoutine(0.1f));
+					
+					break;
+				case INTRO:
+					tm.startConversation(tm.text_light, Conversations.intro, TextAnchor.MiddleLeft, freezePlayer: true);
+					
 					break;
 
 				case START_STATE:
@@ -119,6 +134,8 @@ public class GameStateManager : MonoBehaviour
 
 	IEnumerator StartRoutine(float time) {
 		yield return new WaitForSeconds(time);
-		tm.startConversation(tm.text_light, Conversations.intro, TextAnchor.MiddleLeft, freezePlayer: true);
+		CURRENT_STATE = INTRO;
+		OnStateChange();
+
 	}
 }
