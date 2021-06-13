@@ -87,7 +87,6 @@ public class GameStateManager : MonoBehaviour
 				{
 					CURRENT_STATE = SHIFT_INSTRUCTION;
 					gm.hideCanvas();
-					gm.canSwapFunction();
 					OnStateChange();
 				}
 				break;
@@ -233,6 +232,7 @@ public class GameStateManager : MonoBehaviour
 				break;
 
 			case SHIFT_INSTRUCTION:
+				gm.canSwapFunction();
 				tm.currentIndic = tm.pauseIndicatorLight;
 				tm.currentText = tm.text_light;
 				tm.startConversation(Conversations.shiftTuto, customs: cust);

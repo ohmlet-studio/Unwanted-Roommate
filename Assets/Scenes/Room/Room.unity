@@ -5337,7 +5337,7 @@ MonoBehaviour:
   text_light: {fileID: 187267377}
   text_dark: {fileID: 1214549237}
   text_mirror: {fileID: 48466210}
-  text_ending: {fileID: 7465533809167158095}
+  text_ending: {fileID: 0}
   currentText: {fileID: 0}
   currentIndic: {fileID: 0}
   pauseIndicatorLight: {fileID: 1563677167}
@@ -5357,16 +5357,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CURRENT_STATE: -2
-  DEBUG_STATE: 6
+  DEBUG_STATE: -1
   introDone: 0
   phonePickedUp1: 0
   shower_done: 0
   bureau_fait: 0
   mirror: 0
   bed_done: 0
-  bed_done_dark: 0
+  bed_done_light: 0
   window_done: 0
   mirror_conv_done: 0
+  wentout: 0
+  stayedinside: 0
 --- !u!114 &1910890698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6460,15 +6462,3 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 7465533809167158093}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7465533809167158095 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3956510742915799532, guid: 599d84ad7e45a2245af216154fe0f093,
-    type: 3}
-  m_PrefabInstance: {fileID: 7465533809167158093}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
