@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{0633D153-21D8-C502-F109-D876AB02CF1B}</ProjectGuid>
+    <ProjectGuid>{13764127-F0CE-C913-1A38-B6240813252F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -64,12 +64,9 @@
     <Compile Include="Assets\Scripts\ReskinAnimation.cs" />
     <Compile Include="Assets\Scripts\TextManager.cs" />
     <Compile Include="Assets\Scripts\BedScript.cs" />
-    <Compile Include="Assets\Scripts\GameManager.cs" />
-<<<<<<< HEAD
-    <Compile Include="Assets\Scripts\Conversation.cs" />
     <Compile Include="Assets\Scripts\Conversations.cs" />
-=======
->>>>>>> 274e96465cefa5c10f64dc9c379e0191b7874b91
+    <Compile Include="Assets\Scripts\Conversation.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

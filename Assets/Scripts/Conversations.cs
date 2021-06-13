@@ -12,5 +12,7 @@ public static class Conversations
 
 	public static List<string> conversation2 = new List<string> { "...", "{pause}"};
 
-	public static List<string> conversation3 = new List<string> { "I should be making my bed first" };
+	public static List<string> conversation3 = new List<string> { "I should be making my bed first",
+	"{wait}", "",
+	"Press SPACE to interract on bed" };
 }

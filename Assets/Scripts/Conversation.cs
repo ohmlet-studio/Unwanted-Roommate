@@ -86,7 +86,7 @@ public class Conversation : MonoBehaviour
 				builder = "";
 				target.text = builder;
 			}
-			else if (s == "{wait}") {
+			else if (s == "{wait10}") {
 				yield return new WaitForSeconds(10);
 			}
 			else if (s == "") {
