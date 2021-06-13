@@ -5,22 +5,25 @@ using UnityEngine;
 public class GameStateManager : MonoBehaviour
 {
 	public int CURRENT_STATE;
+	public int DEBUG_STATE;
+
 	public const int INIT = -2;
 	public const int INTRO = -1;
 	public const int START_STATE = 0;
 	public const int PHONE_RINGING = 1;
 	public const int CONVERSATION1 = 2;
 	public const int CONVERSATION2 = 3;
-	public const int SHOWER = 4;
-	public const int DESK = 5;
-	public const int MIRROR = 6;
+	public const int SHOWER_BEFORE = 4;
+	public const int SHOWER_AFTER = 5;
+	public const int DESK = 6;
+	public const int MIRROR = 7;
 
-	public const int MIRROR_DIALOG = 7;
+	public const int MIRROR_DIALOG = 8;
 
-	public const int MAKEBED_LIGHT = 8;
-	public const int MAKEBED_DARK = 9;
+	public const int MAKEBED_LIGHT = 9;
+	public const int MAKEBED_DARK = 10;
 
-	public const int CLOSEWINDOW_DARK = 10;
+	public const int CLOSEWINDOW_DARK = 11;
 
 	public const int END = -4;
 	public const int IDLE = -5;
@@ -28,6 +31,7 @@ public class GameStateManager : MonoBehaviour
 
 	public bool introDone = false;
 	public bool phonePickedUp1 = false;
+	public bool shower_done = false;
 	public bool bureau_fait = false;
 	public bool bed_done = false;
 	public bool bed_done_dark = false;
@@ -88,10 +92,9 @@ public class GameStateManager : MonoBehaviour
 					break;
 
 				case INTRO:
-				List<Conversation.CustomFun> cust = new List<Conversation.CustomFun>();
-				cust.Add(() => Debug.Log("WOOOOOo"));
-
-				tm.startConversation(tm.text_light, Conversations.intro, TextAnchor.MiddleLeft, freezePlayer: true, customs: cust);	
+				tm.currentIndic = tm.pauseIndicatorLight;
+				tm.currentText = tm.text_light;
+				tm.startConversation(Conversations.intro, TextAnchor.MiddleLeft, freezePlayer: true);	
 				break;
 
 				case START_STATE:
@@ -103,29 +106,61 @@ public class GameStateManager : MonoBehaviour
 						CURRENT_STATE = CONVERSATION1;
 						OnStateChange();
 					} else {
-					    tm.startConversation(tm.text_light, Conversations.ring);
+					tm.currentIndic = tm.pauseIndicatorLight;
+					tm.currentText = tm.text_light;
+					tm.startConversation(Conversations.ring);
 					}
 
 					break;
 
 				case CONVERSATION1:
-					tm.startConversation(tm.text_light, Conversations.text_conv1, TextAnchor.MiddleLeft, freezePlayer: true);
+				tm.currentIndic = tm.pauseIndicatorLight;
+				tm.currentText = tm.text_light;
+				tm.startConversation(Conversations.text_conv1, TextAnchor.MiddleLeft, freezePlayer: true);
 				break;
 
 				case CONVERSATION2:
 					gm.switchWorld();
-					tm.startConversation(tm.text_dark, Conversations.dotdotdot, freezePlayer: true);
+				tm.currentIndic = tm.pauseIndicatorDark;
+				tm.currentText = tm.text_dark;
+				tm.startConversation(Conversations.dotdotdot, freezePlayer: true);
 				break;
 
-				case MAKEBED:
+				case SHOWER_BEFORE:
+				if (shower_done)
+				{
+					CURRENT_STATE = SHOWER_AFTER;
+					OnStateChange();
+				} else {
 					gm.switchWorld();
 					gm.playerCanMove = true;
-					tm.startConversation(tm.text_light, Conversations.beforeshower);
+
+					tm.currentIndic = tm.pauseIndicatorLight;
+					tm.currentText = tm.text_light;
+					tm.startConversation(Conversations.beforeshower);
+				}
 				break;
 
-				case MIRROR_DIALOG:
-					
+			case SHOWER_AFTER:
+				List<Conversation.CustomFun> cust = new List<Conversation.CustomFun>();
+				cust.Add(() => {
+					gm.switchWorld();
+					tm.currentIndic = tm.pauseIndicatorLight;
+					tm.currentText = tm.text_light;
+				});
 
+				cust.Add(() => {
+					gm.switchWorld();
+					tm.currentIndic = tm.pauseIndicatorDark;
+					tm.currentText = tm.text_dark;
+				});
+
+				tm.currentIndic = tm.pauseIndicatorLight;
+				tm.currentText = tm.text_light;
+				tm.startConversation(Conversations.aftershower1, customs: cust);
+				break;
+
+			case MIRROR_DIALOG:
 				break;
 		}
 	}
@@ -151,7 +186,7 @@ public class GameStateManager : MonoBehaviour
 
 	IEnumerator StartRoutine(float time) {
 		yield return new WaitForSeconds(time);
-		CURRENT_STATE = INTRO;
+		CURRENT_STATE = DEBUG_STATE;
 		OnStateChange();
 
 	}

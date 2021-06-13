@@ -48,29 +48,35 @@ public static class Conversations
 	public static List<string> beforeshower = new List<string> {
 		"{loading}",
 		"I should at least drop by to say hi", "",
-		"I haven't seen Sasha in a long time", "{loading}", "... *sigh* ", "",
-		"{pause}", "", "Anyway, I need a shower"
+		"I haven't seen Sasha in a long time...", "{wait3}", " *sigh* ", "",
+		"{pause}", "{clear}", "Anyway, I need a shower"
 	};
 
 	public static List<string> aftershower1 = new List<string>
 	{
 		"Ahhh that's better...", "{wait0.5}", "",
-		"Ok, I think I'm ready to go, have I forgotten anything?", "{pause}"
-	};
+		"Ok, I think I'm ready to go, have I forgotten anything?", "{pause}",
 
-	public static List<string> aftershower2 = new List<string>
-	{
-		"Wait", "{loading}", "We can't leave the our home like this"
-	};
+		"{custom1}", "{clear}",
+		"Wait", "{loading}", "We can't leave the our home like this", "{pause}",
 
-	public static List<string> aftershower3 = new List<string> { "Wait", "{loading}", "We can't leave the our home like this" };
-	public static List<string> aftershower4 = new List<string> { "Hummm you're right" };
-	public static List<string> aftershower5 = new List<string> { "You should tidy your desk, it's a mess." };
-	public static List<string> aftershower6 = new List<string> { "It's not that messy, I've been working on a projet for school with..." };
-	public static List<string> aftershower7 = new List<string> { "I don't want to leave without cleaning our desk", "{loading}", "You should clean it" };
-	public static List<string> aftershower8 = new List<string> { "I guess you're right.", "{wait1,5}",
-																	"I don't want to be at the party too early anyway", "{loading}", "Ok,",
-																	"{wait1.5}", "let's get this desk tidy!", "{clean}" };
+		"{custom0}", "{clear}",
+		"Hummm you're right", "{pause}",
+
+		"{custom1}", "{clear}",
+		"You should tidy your desk, it's a mess.", "{pause}",
+
+		"{custom0}", "{clear}",
+		"It's not that messy, I've been working on a projet for school with...", "{pause}",
+
+		"{custom1}", "{clear}",
+		"I don't want to leave without cleaning our desk", "{loading}", "You should clean it", "{pause}",
+
+		"{custom0}", "{clear}",
+		"I guess you're right.", "",
+		"{wait1,5}", " I don't want to be at the party too early anyway","{loading}",
+		"", "", " Ok,", "{wait1.5}", " let's get this desk tidy!", "{pause}"
+	};
 
 	// STATE BED
 

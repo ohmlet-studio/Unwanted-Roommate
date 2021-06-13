@@ -8,12 +8,14 @@ public class Conversation : MonoBehaviour
 {
 	private List<string> conversationLines;
 	private GameManager gm;
+	private TextManager tm;
 
 	public delegate void CustomFun();
 
 	void Start()
 	{
 		gm = GetComponent<GameManager>();
+		tm = GetComponent<TextManager>();
 		newConversation();
 	}
 
@@ -47,14 +49,13 @@ public class Conversation : MonoBehaviour
 		this.conversationLines = new List<string>();
 	}
 
-	public void launchConversation(Text target, GameObject pauseIndicator, TextAnchor textAnchor = TextAnchor.MiddleLeft, bool freezePlayer = false, List<CustomFun> customs = null)
+	public void launchConversation(TextAnchor textAnchor = TextAnchor.MiddleLeft, bool freezePlayer = false, List<CustomFun> customs = null)
 	{
-		target.alignment = textAnchor;
-
-		StartCoroutine(conversationStart(target, pauseIndicator, freezePlayer, customs));
+		tm.currentText.alignment = textAnchor;
+		StartCoroutine(conversationStart(freezePlayer, customs));
 	}
 
-	IEnumerator conversationStart(Text target, GameObject pauseIndicator, bool freezePlayer, List<CustomFun> customs) {
+	IEnumerator conversationStart(bool freezePlayer, List<CustomFun> customs) {
 		string builder = "";
 
 		gm.conversationRunning = true;
@@ -62,6 +63,8 @@ public class Conversation : MonoBehaviour
 
 		foreach (string s in conversationLines)
 		{
+			Text target = tm.currentText;
+			GameObject pauseIndicator = tm.currentIndic;
 			if (s == "{loading}")
 			{
 				for (var i = 0; i < 3; i++)

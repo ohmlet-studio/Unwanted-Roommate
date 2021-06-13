@@ -21,9 +21,10 @@ public class DoorSdbScript : Interactable
 
     public override void Interact()
     {
-        if (gsm.CURRENT_STATE == GameStateManager.IDLE)
+        if (gsm.CURRENT_STATE == GameStateManager.SHOWER_BEFORE)
         {
-
+            gsm.shower_done = true;
+            gsm.OnStateChange();
         }
     }
 

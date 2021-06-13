@@ -9,6 +9,9 @@ public class TextManager : MonoBehaviour
     public Text text_dark;
 	public Text text_mirror;
 
+	public Text currentText;
+	public GameObject currentIndic;
+
 	public GameObject pauseIndicatorLight;
 	public GameObject pauseIndicatorDark;
 
@@ -19,16 +22,8 @@ public class TextManager : MonoBehaviour
 		conv = GetComponent<Conversation>();
 	}
 
-	public void startConversation(Text text, List<string> conversation, TextAnchor anchor = TextAnchor.MiddleCenter, bool freezePlayer = false, List<Conversation.CustomFun> customs = null) {
-		GameObject indic;
-		if(text == text_light) {
-			indic = pauseIndicatorLight;
-		} else {
-			indic = pauseIndicatorDark;
-		}
-		
+	public void startConversation(List<string> conversation, TextAnchor anchor = TextAnchor.MiddleCenter, bool freezePlayer = false, List<Conversation.CustomFun> customs = null) {		
 		conv.loadConversation(conversation);
-
-		conv.launchConversation(text, indic, anchor, freezePlayer, customs);
+		conv.launchConversation(anchor, freezePlayer, customs);
 	}
 }
