@@ -104,7 +104,9 @@ public static class Conversations
 		"{wait0.5}", "{pause}",
 
 		"{custom0}", "{clear}",
-		"Stop exagerating, I'm not dressed up for a fancy party but I don't  even think it's going to be that kind of party. I don't think i look that bad.",
+		"Stop exagerating,", "{wait1}", "",
+		"I'm not dressed up for a fancy party but I don't  even think it's going to be that kind of party.", "{wait1}", "",
+		"I don't think i look that bad.",
 		"{wait0.5}", "{pause}",
 
 		"{custom1}", "{clear}",
