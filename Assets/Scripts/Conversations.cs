@@ -111,7 +111,7 @@ public static class Conversations
 
 		"{custom1}", "{clear}",
 		"{loading}", "... Look in the mirror, then.",
-		"{wait0.5}", "{pause}",
+		"{wait0.5}", "{pause}", "{custom0}"
 	};
 	// STATE BED
 
@@ -120,82 +120,89 @@ public static class Conversations
 
 	public static List<string> mirrorConv = new List<string>
 	{
-		"I don't look that bad, but I FEEL bad.", "{pause}",
+		"I don't look that bad, but I FEEL bad.", "{wait0.5}", "{pause}",
 
 		"{custom3}", "{clear}",
 		"I don't think we should go. ", "{wait1}", "", "", "We look terrible and have loads of things to finish here first.", "{pause}",
 
 		"{custom2}", "{clear}",
-		"But I haven't seen my friends in a while...", "{pause}",
+		"But I haven't seen my friends in a while...", "{wait0.5}", "{pause}",
 
 		"{custom3}", "{clear}",
-		"You don't need them. ", "{wait2}", "We are fine on our own.", "{pause}",
+		"You don't need them. ", "{wait2}", "We are fine on our own.", "{wait0.5}", "{pause}",
 
 		"{custom2}", "{clear}",
-		"You're not healthy for me. ", "{wait1}", "I can't think with you around here. ", "{pause}",
-
-		"{custom3}", "{clear}",
-		"{loading}", "{pause}",
-
-		"{custom2}", "{clear}",
-		"You're not always here. ", "{wait1.5}", "Why are you here now?", "{pause}",
-
-		"{custom3}", "{clear}",
-		"You were scared, I came to help.", "{pause}",
-
-		"{custom2}", "{clear}",
-		"You're not helping. ", "{wait1}", "You are making things worse. ", "{wait3}", "", "", "I want to go to a part and you're making me tidy my appartment.", "{pause}",
-
-		"{custom3}", "{clear}",
-		"We're not ready to go outside.", "{pause}",
-
-		"{custom2}", "{clear}",
-		"Yes I am. ", "{wait1}", "Stop telling me what to do. ", "", "", "{wait2}", "I don't want you here", "{pause}",
-
-		"{custom3}", "{clear}",
-		"But I am you...", "{pause}",
-
-		"{custom2}", "{clear}",
-		"{loading}", "{pause}",
-
-		"{custom3}", "{clear}",
-		"I don't wanna go. ", "{wait1}", "I'm scared.", "{pause}",
-
-		"{custom2}", "{clear}",
-		"{loading}", "... I understand, but I cannot live like this.", "{pause}",
+		"You're not healthy for me. ", "{wait1}", "I can't think with you around here. ", "{wait0.5}", "{pause}",
 
 		"{custom3}", "{clear}",
 		"{loading}", "{pause}",
 
 		"{custom2}", "{clear}",
-		"It's too hard to even think.", "", "", "{wait2}", "I don't feel like I have full control of my mind right now.", "{pause}",
+		"You're not always here. ", "{wait1.5}", "Why are you here now?", "{wait0.5}", "{pause}",
 
 		"{custom3}", "{clear}",
-		"I can't just leave. ", "", "{wait2}", "We are not simply joined together.", "", "", "{wait3}", "We are one.", "{pause}",
+		"You were scared, I came to help.", "{wait0.5}", "{pause}",
 
 		"{custom2}", "{clear}",
-		"Then let's try and fix this together. ", "{pause}"
+		"You're not helping. ", "{wait1}", "You are making things worse. ", "{wait3}", "", "", "I want to go to a part and you're making me tidy my appartment.",
+		"{wait0.5}", "{pause}",
+
+		"{custom3}", "{clear}",
+		"We're not ready to go outside.", "{wait0.5}", "{pause}",
+
+		"{custom2}", "{clear}",
+		"Yes I am. ", "{wait1}", "Stop telling me what to do. ", "", "", "{wait2}", "I don't want you here", "{wait0.5}", "{pause}",
+
+		"{custom3}", "{clear}",
+		"But I am you...", "{wait0.5}", "{pause}",
+
+		"{custom2}", "{clear}",
+		"{loading}", "{wait0.5}", "{pause}",
+
+		"{custom3}", "{clear}",
+		"I don't wanna go. ", "{wait1}", "I'm scared.", "{wait0.5}", "{pause}",
+
+		"{custom2}", "{clear}",
+		"{loading}", "... I understand, but I cannot live like this.", "{wait0.5}", "{pause}",
+
+		"{custom3}", "{clear}",
+		"{loading}", "{wait0.5}", "{pause}",
+
+		"{custom2}", "{clear}",
+		"It's too hard to even think.", "", "", "{wait2}", "I don't feel like I have full control of my mind right now.", "{wait0.5}", "{pause}",
+
+		"{custom3}", "{clear}",
+		"I can't just leave. ", "", "{wait2}", "We are not simply joined together.", "", "", "{wait3}", "We are one.", "{wait0.5}", "{pause}",
+
+		"{custom2}", "{clear}",
+		"Then let's try and fix this together. ", "{wait0.5}", "{pause}",
+
+		"{custom3}", "{clear}",
+		"I'm scared. ", "{wait1.5}", "I don't know if we", "{loading}", "... if I can. ", "{wait2}", "There's too much.",
+		"{wait0.5}", "{pause}",
 	};
 
 
 	public static List<string> windowConv = new List<string> { 
-		"{custom3}", "{clear}",
-		"I'm scared. ", "{wait1.5}", "I don't know if we", "{loading}", "... if I can. ", "{wait2}", "There's too much.", "{pause}",
-
 		"{custom2}", "{clear}",
-		"Don't worry, try and trust me. ", "", "{wait2}", "You're right, I can't leave the appartment yet.", "", "", "{wait2}", "I'm not ready.", "{pause}",
+		"Don't worry, try and trust me. ", "", "{wait2}", "You're right, I can't leave the appartment yet.", "", "", "{wait2}", "I'm not ready.",
+		"{wait0.5}", "{pause}",
 
 		"{custom3}", "{clear}",
-		"I'm scared of all the monsters outside. ", "","{wait1}", "What if they come in?", "{pause}",
+		"I'm scared of all the monsters outside. ", "","{wait1}", "What if they come in?",
+		"{wait0.5}", "{pause}",
 
 		"{custom2}", "{clear}",
-		"Let's just close the windows first.", "{pause}",
+		"Let's just close the windows first.",
+		"{wait0.5}", "{pause}",
 
 		"{custom3}", "{clear}",
-		"I feel a bit better already. ", "", "", "{wait2}", "But what if some of them are already inside?", "{pause}",
+		"I feel a bit better already. ", "", "", "{wait2}", "But what if some of them are already inside?",
+		"{wait0.5}", "{pause}",
 
 		"{custom2}", "{clear}",
-		"We can get rid of them together. ", "{wait2}", "Follow my lead.", "{pause}",
+		"We can get rid of them together. ", "{wait2}", "Follow my lead.",
+		"{wait0.5}", "{pause}",
 	};
 
 }

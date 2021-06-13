@@ -52,6 +52,7 @@ public class Conversation : MonoBehaviour
 
 	public void launchConversation(TextAnchor textAnchor = TextAnchor.MiddleLeft, bool freezePlayer = false, List<CustomFun> customs = null)
 	{
+		Debug.Log(tm.currentText);
 		tm.currentText.alignment = textAnchor;
 		StartCoroutine(conversationStart(freezePlayer, customs));
 	}

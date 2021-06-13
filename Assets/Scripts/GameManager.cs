@@ -55,6 +55,7 @@ class GameManager : MonoBehaviour
         brightSource = brightTheme.GetComponent<AudioSource>();
 
         mirrorCanvas = GameObject.Find("Canvas_mirror_discussion");
+        mirrorCanvas.SetActive(false);
 
         hidden_reg = false;
         hidden_mind = true;
@@ -135,8 +136,23 @@ class GameManager : MonoBehaviour
         playerCanMove = true;
     }
 
+    public void goWorldLight() {
+        this.normalWorld = true;
+        this.hidden_reg = false;
+        this.hidden_mind = true;
+    }
+
+    public void goWorldDark()
+    {
+        this.normalWorld = false;
+        this.hidden_reg = true;
+        this.hidden_mind = false;
+    }
+
     public void switchWorld() {
         this.normalWorld = !this.normalWorld;
+        this.hidden_reg = !this.hidden_reg;
+        this.hidden_mind = !this.hidden_mind;
 
         if (volumeTransition != null) {
             StopCoroutine(volumeTransition);
@@ -152,9 +168,6 @@ class GameManager : MonoBehaviour
 
         canvasTransition = canvasTransitionCoroutine(brightCG.alpha, darkCG.alpha);
         StartCoroutine(canvasTransition);
-        
-        this.hidden_reg = !this.hidden_reg;
-        this.hidden_mind = !this.hidden_mind;
 
         /*this.hider_reg.SetActive(this.hidden_reg);
         this.text_reg.SetActive(!this.hidden_reg);

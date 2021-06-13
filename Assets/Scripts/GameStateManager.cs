@@ -78,7 +78,7 @@ public class GameStateManager : MonoBehaviour
 				if (!gm.conversationRunning)
                 {
 					CURRENT_STATE = MAKEBED_LIGHT;
-					gm.mirrorCanvas.SetActive(false);
+					gm.hideCanvas();
 					OnStateChange();
 				}
 				break;
@@ -98,6 +98,20 @@ public class GameStateManager : MonoBehaviour
 			gm.switchWorld();
 			tm.currentIndic = tm.pauseIndicatorDark;
 			tm.currentText = tm.text_dark;
+		});
+
+		cust.Add(() =>
+		{
+			tm.currentIndic = tm.pauseIndicatorMirror;
+			tm.currentText = tm.text_mirror;
+			tm.currentText.alignment = TextAnchor.UpperLeft;
+		});
+
+		cust.Add(() =>
+		{
+			tm.currentIndic = tm.pauseIndicatorMirror;
+			tm.currentText = tm.text_mirror;
+			tm.currentText.alignment = TextAnchor.UpperRight;
 		});
 
 		switch (CURRENT_STATE)
@@ -181,27 +195,13 @@ public class GameStateManager : MonoBehaviour
 					}
 					break;
 
-			case MIRROR_DIALOG:
-				gm.mirrorCanvas.SetActive(true);
-				cust.Add(() =>
-				{
-					tm.currentIndic = tm.pauseIndicatorLight;
+				case MIRROR_DIALOG:
+					gm.displayCanvas();
+					tm.currentIndic = tm.pauseIndicatorMirror;
 					tm.currentText = tm.text_mirror;
-					tm.currentText.alignment = TextAnchor.UpperLeft;
-				});
+					tm.startConversation(Conversations.mirrorConv, customs: cust, freezePlayer: true);
 
-				cust.Add(() =>
-				{
-					tm.currentIndic = tm.pauseIndicatorDark;
-					tm.currentText = tm.text_mirror;
-					tm.currentText.alignment = TextAnchor.UpperRight;
-				});
-
-				tm.currentIndic = tm.pauseIndicatorLight;
-				tm.currentText = tm.text_mirror;
-				tm.startConversation(Conversations.mirrorConv, customs: cust, freezePlayer: true);
-
-				break;
+					break;
 		}
 	}
 

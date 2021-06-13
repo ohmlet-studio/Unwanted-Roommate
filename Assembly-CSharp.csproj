@@ -60,6 +60,7 @@
     <Compile Include="Assets\Scripts\PhoneScript.cs" />
     <Compile Include="Assets\Scripts\DeskScript.cs" />
     <Compile Include="Assets\Scripts\WindowDarkScript.cs" />
+    <Compile Include="Assets\Scripts\mirrorScript.cs" />
     <Compile Include="Assets\Scripts\Interactable.cs" />
     <Compile Include="Assets\Scripts\Shine.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
@@ -72,10 +73,6 @@
     <Compile Include="Assets\Scripts\DoorSdbScript.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\BedDarkScript.cs" />
-    <Compile Include="Assets\Scripts\Shine.cs" />
-    <Compile Include="Assets\Scripts\DoorSdbScript.cs" />
-    <Compile Include="Assets\Scripts\DoorScript.cs" />
-    <Compile Include="Assets\Scripts\mirrorScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

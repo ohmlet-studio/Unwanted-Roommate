@@ -21,7 +21,7 @@ public class mirrorScript : Interactable
 
     public override void Interact()
     {
-        if (gsm.CURRENT_STATE == GameStateManager.SHOWER_BEFORE)
+        if (gsm.CURRENT_STATE == GameStateManager.DESK)
         {
             gsm.mirror = true;
             gsm.OnStateChange();

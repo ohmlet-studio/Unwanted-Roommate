@@ -14,6 +14,7 @@ public class TextManager : MonoBehaviour
 
 	public GameObject pauseIndicatorLight;
 	public GameObject pauseIndicatorDark;
+	public GameObject pauseIndicatorMirror;
 
 	public Conversation conv;
 
