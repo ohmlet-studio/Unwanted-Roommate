@@ -15,7 +15,7 @@ public abstract class Interactable : MonoBehaviour
 
 	protected virtual void Update()
 	{
-		if(playerInside && gm.interactKeyDown) {
+		if(playerInside && gm.interactKeyDown && !gm.conversationRunning) {
 			Interact();
 		}
 	}

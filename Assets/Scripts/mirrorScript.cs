@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeskScript : Interactable
+public class mirrorScript : Interactable
 {
     GameStateManager gsm;
-    public Sprite bureau_fait;
 
     // Start is called before the first frame update
     void Start()
@@ -22,11 +21,11 @@ public class DeskScript : Interactable
 
     public override void Interact()
     {
-        if (gsm.CURRENT_STATE == GameStateManager.SHOWER_AFTER)
+        if (gsm.CURRENT_STATE == GameStateManager.SHOWER_BEFORE)
         {
-            GetComponent<SpriteRenderer>().sprite = bureau_fait;
-            gsm.bureau_fait = true;
+            gsm.mirror = true;
             gsm.OnStateChange();
         }
     }
+
 }

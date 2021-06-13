@@ -32,7 +32,7 @@ public static class Conversations
 
 	public static List<string> text_conv1 = new List<string>{
 		"[17:48] Deb : Hey are you still up for tonight ?", "",
-		"{loading}",
+		"{wait1}",
 		"[17:49] Max : Mhhh", "{loading}", "... I don't know ", "{wait1}", " *sigh*", "",
 		"{loading}",
 		"[17:49] Deb : well sasha and todd are going and they said they really wanted to see you !", "",
@@ -58,29 +58,60 @@ public static class Conversations
 		"Ok, I think I'm ready to go, have I forgotten anything?", "{pause}",
 
 		"{custom1}", "{clear}",
-		"Wait", "{loading}", "We can't leave the our home like this", "{pause}",
+		"Wait", "{loading}", "...",
+		"",
+		"We can't leave the our home like this",
+		"{wait1}", "{pause}",
 
 		"{custom0}", "{clear}",
-		"Hummm you're right", "{pause}",
+		"Hummm you're right",
+		"{wait0.5}", "{pause}",
 
 		"{custom1}", "{clear}",
-		"You should tidy your desk, it's a mess.", "{pause}",
+		"You should tidy your desk, it's a mess.",
+		"{wait0.5}", "{pause}",
 
 		"{custom0}", "{clear}",
-		"It's not that messy, I've been working on a projet for school with...", "{pause}",
+		"It's not that messy, I've been working on a projet for school with...",
+		"{wait0.5}", "{pause}",
 
 		"{custom1}", "{clear}",
-		"I don't want to leave without cleaning our desk", "{loading}", "You should clean it", "{pause}",
+		"I don't want to leave without cleaning our desk", "{loading}", "", "You should clean it",
+		"{wait0.5}", "{pause}",
 
 		"{custom0}", "{clear}",
 		"I guess you're right.", "",
 		"{wait1,5}", " I don't want to be at the party too early anyway","{loading}",
-		"", "", " Ok,", "{wait1.5}", " let's get this desk tidy!", "{pause}"
+		"", "", " Ok,", "{wait1.5}", " let's get this desk tidy!",
+		"{wait0.5}", "{pause}"
 	};
 
-	// STATE BED
+	public static List<string> afterdesk = new List<string>
+	{
+		"Ahhh I'm happy we did that, I feel a bit better. I should probably get going now.",
+		"{wait0.5}", "{pause}",
 
-	public static List<string> mindPreMirror = new List<string> { "{loading}", "... Look in the mirror, then." };
+		"{custom1}", "{clear}",
+		"It only takes 30 minute to get there. We'll probably still be early. We still have time to get things done here. The rooms still a mess.",
+		"{wait0.5}", "{pause}",
+
+		"{custom0}", "{clear}",
+		"It's not that bad!",
+		"{wait0.5}", "{pause}",
+
+		"{custom1}", "{clear}",
+		"Have you seen our face. We're not ready to face the outside world yet.",
+		"{wait0.5}", "{pause}",
+
+		"{custom0}", "{clear}",
+		"Stop exagerating, I'm not dressed up for a fancy party but I don't  even think it's going to be that kind of party. I don't think i look that bad.",
+		"{wait0.5}", "{pause}",
+
+		"{custom1}", "{clear}",
+		"{loading}", "... Look in the mirror, then.",
+		"{wait0.5}", "{pause}",
+	};
+	// STATE BED
 
 	// ***************** MIRROR CONVERSATION ***************** //
 	// ******************************************************* //
@@ -106,6 +137,8 @@ public static class Conversations
 	public static List<string> mirrorReal9 = new List<string> { "It's too hard to even think.", "", "", "{wait2}", "I don't feel like I have full control of my mind right now." };
 	
 	public static List<string> mirrorReal10 = new List<string> { "Then let's try and fix this together. " };
+
+
 
 	public static List<string> mirrorReal11 = new List<string> { "Don't worry, try and trust me. ", "", "{wait2}", "You're right, I can't leave the appartment yet.", "", "", "{wait2}", "I'm not ready." };
 
