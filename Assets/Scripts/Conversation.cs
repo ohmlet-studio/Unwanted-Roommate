@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class Conversation : MonoBehaviour
 {
 	private List<string> conversationLines;
@@ -89,6 +90,34 @@ public class Conversation : MonoBehaviour
 			else if (s == "{wait10}") {
 				yield return new WaitForSeconds(10);
 			}
+			else if (s == "{wait5}")
+			{
+				yield return new WaitForSeconds(5);
+			}
+			else if (s == "{wait4}")
+            {
+				yield return new WaitForSeconds(4);
+			}
+			else if (s == "{wait3.5}")
+			{
+				yield return new WaitForSeconds(3.5f);
+			}
+			else if (s == "{wait3}")
+			{
+				yield return new WaitForSeconds(3);
+			}
+			else if (s == "{wait2}")
+            {
+				yield return new WaitForSeconds(2);
+			}
+			else if (s == "{wait1.5}")
+			{
+				yield return new WaitForSeconds(1.5f);
+			}
+			else if (s == "{wait1}")
+            {
+				yield return new WaitForSeconds(1);
+			}
 			else if (s == "") {
 				builder += "\n";
 				target.text = builder;
@@ -102,5 +131,6 @@ public class Conversation : MonoBehaviour
 
 		gm.conversationRunning = false;
 		gm.playerCanMove = true;
+
 	}
 }
