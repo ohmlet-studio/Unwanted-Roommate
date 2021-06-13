@@ -175,32 +175,33 @@ public static class Conversations
 		"I can't just leave. ", "", "{wait2}", "We are not simply joined together.", "", "", "{wait3}", "We are one.", "{wait0.5}", "{pause}",
 
 		"{custom2}", "{clear}",
-		"Then let's try and fix this together. ", "{wait0.5}", "{pause}",
-
-		"{custom3}", "{clear}",
-		"I'm scared. ", "{wait1.5}", "I don't know if we", "{loading}", "... if I can. ", "{wait2}", "There's too much.",
-		"{wait0.5}", "{pause}",
+		"Then let's try and fix this together. ", "{wait0.5}", "{pause}"
 	};
 
 
-	public static List<string> windowConv = new List<string> { 
-		"{custom2}", "{clear}",
-		"Don't worry, try and trust me. ", "", "{wait2}", "You're right, I can't leave the appartment yet.", "", "", "{wait2}", "I'm not ready.",
+	public static List<string> windowConv = new List<string> {
+		"{custom1}", "{clear}",
+		"I'm scared. ", "{wait1.5}", "I don't know if we", "{loading}", "... if I can. ", "{wait2}", "There's too much.",
 		"{wait0.5}", "{pause}",
 
-		"{custom3}", "{clear}",
+		"{custom0}", "{clear}",
+		"Don't worry, try and trust me. ", "", "{wait2}", "You're right, I can't leave the appartment yet.", "", "",
+		"{wait2}", "I'm not ready.",
+		"{wait0.5}", "{pause}",
+
+		"{custom1}", "{clear}",
 		"I'm scared of all the monsters outside. ", "","{wait1}", "What if they come in?",
 		"{wait0.5}", "{pause}",
 
-		"{custom2}", "{clear}",
+		"{custom0}", "{clear}",
 		"Let's just close the windows first.",
 		"{wait0.5}", "{pause}",
 
-		"{custom3}", "{clear}",
+		"{custom1}", "{clear}",
 		"I feel a bit better already. ", "", "", "{wait2}", "But what if some of them are already inside?",
 		"{wait0.5}", "{pause}",
 
-		"{custom2}", "{clear}",
+		"{custom0}", "{clear}",
 		"We can get rid of them together. ", "{wait2}", "Follow my lead.",
 		"{wait0.5}", "{pause}",
 	};
