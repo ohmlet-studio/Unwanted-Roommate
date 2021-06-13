@@ -9,10 +9,20 @@ public class GameStateManager : MonoBehaviour
 	public const int PHONE_RINGING = 1;
 	public const int CONVERSATION1 = 2;
 	public const int CONVERSATION2 = 3;
-	public const int MAKEBED = 4;
+	public const int SHOWER = 4;
+	public const int DESK = 5;
+	public const int MIRROR = 6;
+
+	public const int MIRROR_DIALOG = 7;
+
+	public const int MAKEBED_LIGHT = 8;
+	public const int MAKEBED_DARK = 9;
+
+	public const int CLOSEWINDOW_DARK = 10;
 
 	public const int END = -1;
 	public const int IDLE = -2;
+	public const int MAKEBED = -3;
 
 	public bool phonePickedUp1 = false;
 	public bool bureau_fait = false;
@@ -31,18 +41,21 @@ public class GameStateManager : MonoBehaviour
 	}
 
 	void Update() {
-		if(gm.interactKeyDown) {
-			switch (CURRENT_STATE) {
-				case CONVERSATION1:
+		switch (CURRENT_STATE) {
+			case CONVERSATION1:
+				if(!gm.conversationRunning) {
 					CURRENT_STATE = CONVERSATION2;
 					OnStateChange();
-					break;
+				}
+				break;
 
-				case CONVERSATION2:
+			case CONVERSATION2:
+				if (!gm.conversationRunning)
+				{
 					CURRENT_STATE = MAKEBED;
 					OnStateChange();
-					break;
-			}
+				}
+				break;
 		}
 	}
 
@@ -51,48 +64,40 @@ public class GameStateManager : MonoBehaviour
 			switch (CURRENT_STATE)
 			{
 				case START_STATE:
-					tm.clearText(tm.text_light);
-					tm.clearText(tm.text_dark);
-					StartCoroutine(ExecuteAfterTime(5));
+					StartCoroutine(PhoneCountdown(5));
 					break;
 
 				case PHONE_RINGING:
 					if (phonePickedUp1) {
-						tm.clearText(tm.text_light);
 						CURRENT_STATE = CONVERSATION1;
 						OnStateChange();
 					} else {
-						tm.clearText(tm.text_light);
-						tm.sendText(tm.text_light, "*Ring* *Ring*");
+					    tm.startConversation(tm.text_light, Conversations.ring);
 					}
 
 					break;
 
 				case CONVERSATION1:
-					tm.sendText(tm.text_light, "[20:15] Deb : Hey Jess is throwing a party tonight! You comin' ?");
-					tm.sendText(tm.text_light, "[20:16] Max : Mhhh... sure I guess, just gimme a sec");
-					tm.sendText(tm.text_light, "\n [...]");
-					gm.lockControls();
-					break;
+					tm.startConversation(tm.text_light, Conversations.conversation1, TextAnchor.MiddleLeft, freezePlayer: true);
+				break;
 
 				case CONVERSATION2:
 					gm.switchWorld();
-					tm.sendText(tm.text_dark, "...");
-					break;
+					tm.startConversation(tm.text_dark, Conversations.conversation2, freezePlayer: true);
+				break;
 
 				case MAKEBED:
 					gm.switchWorld();
-				gm.unlockControls();
-				tm.clearText(tm.text_light);
-					tm.sendText(tm.text_light, "I should be making my bed first");
-					break;
+					gm.playerCanMove = true;
+					tm.startConversation(tm.text_light, Conversations.conversation3);
+				break;
 		}
 	}
 
 
 	// COROUTINE RING RING
 	private bool isCoroutineExecuting = false;
-	IEnumerator ExecuteAfterTime(float time)
+	IEnumerator PhoneCountdown(float time)
 	{
 		if (isCoroutineExecuting)
 			yield break;

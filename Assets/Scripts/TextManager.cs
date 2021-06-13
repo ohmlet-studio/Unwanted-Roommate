@@ -7,18 +7,27 @@ public class TextManager : MonoBehaviour
 {
     public Text text_light;
     public Text text_dark;
-    public void sendText(Text target, string content, Font font = null, bool animated = false, float animationSpeed = 1)
-    {
-        if (font is null)
-        {
-            font = Resources.GetBuiltinResource<Font>("Arial.ttf");
-        }
-        target.text += "\n"  + content;
-        target.font = font;
-    }
 
-    public void clearText(Text target)
-    {
-        target.text = "";
-    }
+	public GameObject pauseIndicatorLight;
+	public GameObject pauseIndicatorDark;
+
+	private Conversation conv;
+
+	private void Start()
+	{
+		conv = GetComponent<Conversation>();
+	}
+
+	public void startConversation(Text text, List<string> conversation, TextAnchor anchor = TextAnchor.MiddleCenter, bool freezePlayer = false) {
+		GameObject indic;
+		if(text == text_light) {
+			indic = pauseIndicatorLight;
+		} else {
+			indic = pauseIndicatorDark;
+		}
+
+		conv.loadConversation(conversation);
+
+		conv.launchConversation(text, indic, anchor, freezePlayer);
+	}
 }

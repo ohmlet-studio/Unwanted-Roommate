@@ -34,8 +34,9 @@ class GameManager : MonoBehaviour
     SpriteRenderer brightHider, darkHider;
     AudioSource darkSource, brightSource;
     private bool hidden_reg, hidden_mind;
+	public bool conversationRunning;
 
-    void Start()
+	void Start()
     {
         this.normalWorld = true;
 
