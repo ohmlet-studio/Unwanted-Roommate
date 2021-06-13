@@ -64,8 +64,9 @@ public class GameStateManager : MonoBehaviour
 			switch (CURRENT_STATE)
 			{
 				case INTRO:
-					tm.startConversation(tm.text_light, Conversations.intro, TextAnchor.MiddleLeft, freezePlayer: true);
+					StartCoroutine(StartRoutine(0.1f));
 					break;
+
 				case START_STATE:
 					StartCoroutine(PhoneCountdown(5));
 					break;
@@ -115,4 +116,9 @@ public class GameStateManager : MonoBehaviour
 		isCoroutineExecuting = false;
 	}
 
+
+	IEnumerator StartRoutine(float time) {
+		yield return new WaitForSeconds(time);
+		tm.startConversation(tm.text_light, Conversations.intro, TextAnchor.MiddleLeft, freezePlayer: true);
+	}
 }

@@ -10,7 +10,7 @@ public class Conversation : MonoBehaviour
 
 	void Start()
 	{
-		gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+		gm = GetComponent<GameManager>();
 		newConversation();
 	}
 
