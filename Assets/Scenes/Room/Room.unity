@@ -498,6 +498,27 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 199024342}
   m_PrefabAsset: {fileID: 0}
+--- !u!223 &199024345
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199024344}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &303705481
 GameObject:
   m_ObjectHideFlags: 0
@@ -1711,6 +1732,7 @@ RectTransform:
   - {fileID: 781312494}
   - {fileID: 187267376}
   - {fileID: 1563677166}
+  - {fileID: 1412457658}
   m_Father: {fileID: 862334318}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2719,7 +2741,7 @@ RectTransform:
   m_LocalScale: {x: 1.012, y: 1.012, z: 1}
   m_Children: []
   m_Father: {fileID: 863994470}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3249,6 +3271,27 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1563677165}
   m_PrefabAsset: {fileID: 0}
+--- !u!223 &1563677168
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563677167}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &1601691378
 GameObject:
   m_ObjectHideFlags: 0
@@ -3716,9 +3759,9 @@ MonoBehaviour:
   text_mind: {fileID: 2126672178}
   brightTheme: {fileID: 0}
   darkTheme: {fileID: 0}
-  conversationRunning: 0
   brightCanvas: {fileID: 0}
   darkCanvas: {fileID: 0}
+  conversationRunning: 0
 --- !u!4 &1910890695
 Transform:
   m_ObjectHideFlags: 0
@@ -3761,7 +3804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b167e04d28bd51a48a25559cfc34e65d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CURRENT_STATE: 0
+  CURRENT_STATE: -1
   phonePickedUp1: 0
   bureau_fait: 0
   bed_done: 0
@@ -4001,8 +4044,8 @@ RectTransform:
   m_Children:
   - {fileID: 1850138868}
   - {fileID: 1642295918}
-  - {fileID: 1214549236}
   - {fileID: 199024343}
+  - {fileID: 1214549236}
   m_Father: {fileID: 862334318}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4308,7 +4351,7 @@ PrefabInstance:
     - target: {fileID: 3742212137554342667, guid: 1d609ac5d90f03c43811f700ad3d0efa,
         type: 3}
       propertyPath: m_Text
-      value: Text layer regular
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3742212137554342667, guid: 1d609ac5d90f03c43811f700ad3d0efa,
         type: 3}
@@ -4485,6 +4528,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6590195062988261726, guid: e3dfd65400966ba4087dab2461a8dc2e,
         type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6590195062988261726, guid: e3dfd65400966ba4087dab2461a8dc2e,
+        type: 3}
       propertyPath: m_FontData.m_MaxSize
       value: 102
       objectReference: {fileID: 0}
@@ -4511,7 +4559,7 @@ PrefabInstance:
     - target: {fileID: 6590195062988261727, guid: e3dfd65400966ba4087dab2461a8dc2e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6590195062988261727, guid: e3dfd65400966ba4087dab2461a8dc2e,
         type: 3}

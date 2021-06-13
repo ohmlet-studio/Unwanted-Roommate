@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameStateManager : MonoBehaviour
 {
 	public int CURRENT_STATE;
+	public const int INTRO = -1;
 	public const int START_STATE = 0;
 	public const int PHONE_RINGING = 1;
 	public const int CONVERSATION1 = 2;
@@ -20,7 +21,7 @@ public class GameStateManager : MonoBehaviour
 
 	public const int CLOSEWINDOW_DARK = 10;
 
-	public const int END = -1;
+	public const int END = -4;
 	public const int IDLE = -2;
 	public const int MAKEBED = -3;
 
@@ -35,7 +36,6 @@ public class GameStateManager : MonoBehaviour
 	{
 		gm = GameObject.FindObjectOfType<GameManager>();
 		tm = FindObjectOfType<TextManager>();
-
 
 		OnStateChange();
 	}
@@ -63,6 +63,9 @@ public class GameStateManager : MonoBehaviour
 	{
 			switch (CURRENT_STATE)
 			{
+				case INTRO:
+					tm.startConversation(tm.text_light, Conversations.intro, TextAnchor.MiddleLeft, freezePlayer: true);
+					break;
 				case START_STATE:
 					StartCoroutine(PhoneCountdown(5));
 					break;

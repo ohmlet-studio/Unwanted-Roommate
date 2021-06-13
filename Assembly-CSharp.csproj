@@ -64,12 +64,9 @@
     <Compile Include="Assets\Scripts\ReskinAnimation.cs" />
     <Compile Include="Assets\Scripts\TextManager.cs" />
     <Compile Include="Assets\Scripts\BedScript.cs" />
-    <Compile Include="Assets\Scripts\GameManager.cs" />
-<<<<<<< HEAD
-    <Compile Include="Assets\Scripts\Conversation.cs" />
     <Compile Include="Assets\Scripts\Conversations.cs" />
-=======
->>>>>>> 274e96465cefa5c10f64dc9c379e0191b7874b91
+    <Compile Include="Assets\Scripts\Conversation.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
