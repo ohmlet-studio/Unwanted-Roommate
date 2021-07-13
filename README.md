@@ -1,7 +1,11 @@
 # Unwanted-Roommate-GTMK2021
-
-![UnwantedRoommateLogo](/images/unwantedroommate.png)
-
+  
+  
+<p align="center">
+  <img src="unwantedroommate.png">
+</p>
+  
+  
 Unwanted Roommate is a game made with Unity for the [2021 GMTK Game Jam](http://itch.io/jam/gmtk-2021) in the span of 24 hours.  
 The theme for this years' Jam was "Joined Together". We chose to make a game were you have to deal with your unescapable anxiety : your Unwanted Roommate.
 It is the first project where we got to work with original art assets. The game is bit janky since we are still learning how to use the Unity Game Engine.
